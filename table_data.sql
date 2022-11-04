@@ -1,6 +1,7 @@
-DROP TABLE mytable; --to run this multiple times
-CREATE TABLE mytable( --removed primary key so it can work. will need a 5th variable for key
-   Date      DATE  NOT NULL 
+DROP TABLE mytable;
+CREATE TABLE mytable(
+   AQ_Key    INTEGER NOT NULL PRIMARY KEY
+  ,Date      DATE  NOT NULL 
   ,Country   VARCHAR(52) NOT NULL
   ,Status    VARCHAR(30) NOT NULL
   ,AQI_Value INTEGER  NOT NULL
