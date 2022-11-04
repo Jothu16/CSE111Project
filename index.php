@@ -10,4 +10,18 @@
    } else {
       echo "Opened database successfully\n";
    }
+
+   $sql =<<<EOF
+      SELECT * from mytable;
+EOF;
+
+   $ret = $db->query($sql);
+   while($row = $ret->fetchArray(SQLITE3_ASSOC) ) {
+      echo "Date = ". $row['Date'] . "\n\n";
+      echo "Country = ". $row['Country'] ."\n\n";
+      echo "Status = ". $row['Status'] ."\n\n";
+      echo "AQI_Value = ".$row['AQI_Value'] ."\n\n";
+   }
+   echo "Operation done successfully\n";
+   $db->close();
 ?>
