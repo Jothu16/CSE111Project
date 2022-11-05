@@ -1,3 +1,12 @@
+<DOCTYPE html>
+   <html lang = 'en'>
+      <head>
+         <meta charset = 'UFT-8'>
+         <title> Air Quality Index Table (AQI) </title>
+</head>
+<body>
+</body>
+   </html>
 <?php
    class MyDB extends SQLite3 {
       function __construct() {
