@@ -88,6 +88,116 @@ Status = (6, 'Very Unhealthy', 301, 999999)
 cursor.execute("INSERT OR REPLACE INTO Status VALUES(?,?,?,?)", Status)
 db.commit()
 
+#Populate Country Table
+Country = (1,'Europe','Albania')
+cursor.execute("INSERT OR REPLACE INTO Country VALUES(?,?,?)", Country)
+db.commit()
+
+Country = (2,'Africa','Algeria')
+cursor.execute("INSERT OR REPLACE INTO Country VALUES(?,?,?)", Country)
+db.commit()
+
+Country = (3,'Europe','Andorra')
+cursor.execute("INSERT OR REPLACE INTO Country VALUES(?,?,?)", Country)
+db.commit()
+
+Country = (4,'Africa','Angola')
+cursor.execute("INSERT OR REPLACE INTO Country VALUES(?,?,?)", Country)
+db.commit()
+
+Country = (5,'South America','Argentina')
+cursor.execute("INSERT OR REPLACE INTO Country VALUES(?,?,?)", Country)
+db.commit()
+
+Country = (6,'Asia','Armenia')
+cursor.execute("INSERT OR REPLACE INTO Country VALUES(?,?,?)", Country)
+db.commit()
+
+Country = (7,'Oceania','Australia')
+cursor.execute("INSERT OR REPLACE INTO Country VALUES(?,?,?)", Country)
+db.commit()
+
+Country = (8,'Europe','Austria')
+cursor.execute("INSERT OR REPLACE INTO Country VALUES(?,?,?)", Country)
+db.commit()
+
+Country = (9,'Asia','Azerbaijan')
+cursor.execute("INSERT OR REPLACE INTO Country VALUES(?,?,?)", Country)
+db.commit()
+
+Country = (10,'Asia','Bahrain')
+cursor.execute("INSERT OR REPLACE INTO Country VALUES(?,?,?)", Country)
+db.commit()
+
+Country = (11,'Asia','Bangladesh')
+cursor.execute("INSERT OR REPLACE INTO Country VALUES(?,?,?)", Country)
+db.commit()
+
+Country = (12,'Europe','Belarus')
+cursor.execute("INSERT OR REPLACE INTO Country VALUES(?,?,?)", Country)
+db.commit()
+
+Country = (13,'Europe','Belgium')
+cursor.execute("INSERT OR REPLACE INTO Country VALUES(?,?,?)", Country)
+db.commit()
+
+Country = (14,'North America','Belize')
+cursor.execute("INSERT OR REPLACE INTO Country VALUES(?,?,?)", Country)
+db.commit()
+
+Country = (15,'North America','Bermuda')
+cursor.execute("INSERT OR REPLACE INTO Country VALUES(?,?,?)", Country)
+db.commit()
+
+Country = (16,'South America','Bolivia')
+cursor.execute("INSERT OR REPLACE INTO Country VALUES(?,?,?)", Country)
+db.commit()
+
+Country = (17,'Europe','Bosnia and Herzgovinia')
+cursor.execute("INSERT OR REPLACE INTO Country VALUES(?,?,?)", Country)
+db.commit()
+
+Country = (18,'South America','Brazil')
+cursor.execute("INSERT OR REPLACE INTO Country VALUES(?,?,?)", Country)
+db.commit()
+
+Country = (19,'Asia','Brunei')
+cursor.execute("INSERT OR REPLACE INTO Country VALUES(?,?,?)", Country)
+db.commit()
+
+Country = (20,'Europe','Bulgaria')
+cursor.execute("INSERT OR REPLACE INTO Country VALUES(?,?,?)", Country)
+db.commit()
+
+Country = (21,'Africa','Burkina Faso')
+cursor.execute("INSERT OR REPLACE INTO Country VALUES(?,?,?)", Country)
+db.commit()
+
+#Populate Continent Table
+Continent = (1,'Europe')
+cursor.execute("INSERT OR REPLACE INTO Continent VALUES(?,?)", Continent)
+db.commit()
+
+Continent = (2,'Africa')
+cursor.execute("INSERT OR REPLACE INTO Continent VALUES(?,?)", Continent)
+db.commit()
+
+Continent = (3,'South America')
+cursor.execute("INSERT OR REPLACE INTO Continent VALUES(?,?)", Continent)
+db.commit()
+
+Continent = (4,'Asia')
+cursor.execute("INSERT OR REPLACE INTO Continent VALUES(?,?)", Continent)
+db.commit()
+
+Continent = (5,'Oceania')
+cursor.execute("INSERT OR REPLACE INTO Continent VALUES(?,?)", Continent)
+db.commit()
+
+Continent = (6,'North America')
+cursor.execute("INSERT OR REPLACE INTO Continent VALUES(?,?)", Continent)
+db.commit()
+
 #Populate Capitol Table
 Capital_City = (1,'Europe','Albania','Tirana')
 cursor.execute("INSERT OR REPLACE INTO Capital_City VALUES(?,?,?,?)", Capital_City)
