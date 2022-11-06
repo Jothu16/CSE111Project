@@ -90,87 +90,87 @@ db.commit()
 
 #Populate Capitol Table
 Capital_City = (1,'Europe','Albania','Tirana')
-cursor.execute("INSERT OR REPLACE INTO Status VALUES(?,?,?,?)", Status)
+cursor.execute("INSERT OR REPLACE INTO Capital_City VALUES(?,?,?,?)", Status)
 db.commit()
 
 Capital_City = (2,'Africa','Algeria','Algiers')
-cursor.execute("INSERT OR REPLACE INTO Status VALUES(?,?,?,?)", Status)
+cursor.execute("INSERT OR REPLACE INTO Capital_City VALUES(?,?,?,?)", Status)
 db.commit()
 
 Capital_City = (3,'Europe','Andorra','Andorra la Vella')
-cursor.execute("INSERT OR REPLACE INTO Status VALUES(?,?,?,?)", Status)
+cursor.execute("INSERT OR REPLACE INTO Capital_City VALUES(?,?,?,?)", Status)
 db.commit()
 
 Capital_City = (4,'Africa','Angola','Luanda')
-cursor.execute("INSERT OR REPLACE INTO Status VALUES(?,?,?,?)", Status)
+cursor.execute("INSERT OR REPLACE INTO Capital_City VALUES(?,?,?,?)", Status)
 db.commit()
 
 Capital_City = (5,'South America','Argentina','Buenos Aires')
-cursor.execute("INSERT OR REPLACE INTO Status VALUES(?,?,?,?)", Status)
+cursor.execute("INSERT OR REPLACE INTO Capital_City VALUES(?,?,?,?)", Status)
 db.commit()
 
 Capital_City = (6,'Asia','Armenia','Yerevan')
-cursor.execute("INSERT OR REPLACE INTO Status VALUES(?,?,?,?)", Status)
+cursor.execute("INSERT OR REPLACE INTO Capital_City VALUES(?,?,?,?)", Status)
 db.commit()
 
 Capital_City = (7,'Oceania','Australia','Canberra')
-cursor.execute("INSERT OR REPLACE INTO Status VALUES(?,?,?,?)", Status)
+cursor.execute("INSERT OR REPLACE INTO Capital_City VALUES(?,?,?,?)", Status)
 db.commit()
 
 Capital_City = (8,'Europe','Austria','Vienna')
-cursor.execute("INSERT OR REPLACE INTO Status VALUES(?,?,?,?)", Status)
+cursor.execute("INSERT OR REPLACE INTO Capital_City VALUES(?,?,?,?)", Status)
 db.commit()
 
 Capital_City = (9,'Asia','Azerbaijan','Baku')
-cursor.execute("INSERT OR REPLACE INTO Status VALUES(?,?,?,?)", Status)
+cursor.execute("INSERT OR REPLACE INTO Capital_City VALUES(?,?,?,?)", Status)
 db.commit()
 
 Capital_City = (10,'Asia','Bahrain','Manama')
-cursor.execute("INSERT OR REPLACE INTO Status VALUES(?,?,?,?)", Status)
+cursor.execute("INSERT OR REPLACE INTO Capital_City VALUES(?,?,?,?)", Status)
 db.commit()
 
 Capital_City = (11,'Asia','Bangladesh','Dhaka')
-cursor.execute("INSERT OR REPLACE INTO Status VALUES(?,?,?,?)", Status)
+cursor.execute("INSERT OR REPLACE INTO Capital_City VALUES(?,?,?,?)", Status)
 db.commit()
 
 Capital_City = (12,'Europe','Belarus','Minsk')
-cursor.execute("INSERT OR REPLACE INTO Status VALUES(?,?,?,?)", Status)
+cursor.execute("INSERT OR REPLACE INTO Capital_City VALUES(?,?,?,?)", Status)
 db.commit()
 
 Capital_City = (13,'Europe','Belgium','Burssels')
-cursor.execute("INSERT OR REPLACE INTO Status VALUES(?,?,?,?)", Status)
+cursor.execute("INSERT OR REPLACE INTO Capital_City VALUES(?,?,?,?)", Status)
 db.commit()
 
 Capital_City = (14,'North America','Belize','Belomopan')
-cursor.execute("INSERT OR REPLACE INTO Status VALUES(?,?,?,?)", Status)
+cursor.execute("INSERT OR REPLACE INTO Capital_City VALUES(?,?,?,?)", Status)
 db.commit()
 
 Capital_City = (15,'North America','Bermuda','Hamilton')
-cursor.execute("INSERT OR REPLACE INTO Status VALUES(?,?,?,?)", Status)
+cursor.execute("INSERT OR REPLACE INTO Capital_City VALUES(?,?,?,?)", Status)
 db.commit()
 
 Capital_City = (16,'South America','Bolivia','Sucre')
-cursor.execute("INSERT OR REPLACE INTO Status VALUES(?,?,?,?)", Status)
+cursor.execute("INSERT OR REPLACE INTO Capital_City VALUES(?,?,?,?)", Status)
 db.commit()
 
 Capital_City = (17,'Europe','Bosnia and Herzgovinia','Sarajevo')
-cursor.execute("INSERT OR REPLACE INTO Status VALUES(?,?,?,?)", Status)
+cursor.execute("INSERT OR REPLACE INTO Capital_City VALUES(?,?,?,?)", Status)
 db.commit()
 
 Capital_City = (18,'South America','Brazil','Brasilia')
-cursor.execute("INSERT OR REPLACE INTO Status VALUES(?,?,?,?)", Status)
+cursor.execute("INSERT OR REPLACE INTO Capital_City VALUES(?,?,?,?)", Status)
 db.commit()
 
 Capital_City = (19,'Asia','Brunei','Branda Seri Begawan')
-cursor.execute("INSERT OR REPLACE INTO Status VALUES(?,?,?,?)", Status)
+cursor.execute("INSERT OR REPLACE INTO Capital_City VALUES(?,?,?,?)", Status)
 db.commit()
 
 Capital_City = (20,'Europe','Bulgaria','Sofia')
-cursor.execute("INSERT OR REPLACE INTO Status VALUES(?,?,?,?)", Status)
+cursor.execute("INSERT OR REPLACE INTO Capital_City VALUES(?,?,?,?)", Status)
 db.commit()
 
 Capital_City = (21,'Africa','Burkina Faso','Ouagadougou')
-cursor.execute("INSERT OR REPLACE INTO Status VALUES(?,?,?,?)", Status)
+cursor.execute("INSERT OR REPLACE INTO Capital_City VALUES(?,?,?,?)", Status)
 db.commit()
 
 
