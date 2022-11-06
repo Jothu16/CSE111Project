@@ -75,7 +75,7 @@ Status = (5, 'Very Unhealthy', 201, 300)
 cursor.execute("INSERT OR REPLACE INTO Function_Table VALUES(?,?,?,?,?,?,?)", Status)
 db.commit()
 
-Status = (6, 'Very Unhealthy', 301, 999999)
+Status = (6, 'Maroon', 301, 999999)
 cursor.execute("INSERT OR REPLACE INTO Function_Table VALUES(?,?,?,?,?,?,?)", Status)
 db.commit()
 
