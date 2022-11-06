@@ -23,7 +23,7 @@ cursor.execute("""CREATE TABLE Current_AQ_Info(
     )""")
 
 cursor.execute("""CREATE TABLE Users(
-     Usser_Key INTEGER PRIMARY KEY,
+     User_Key INTEGER PRIMARY KEY,
      First_Name TEXT,
      Last_Name TEXT
      )""")
@@ -86,6 +86,11 @@ db.commit()
 
 Status = (6, 'Very Unhealthy', 301, 999999)
 cursor.execute("INSERT OR REPLACE INTO Status VALUES(?,?,?,?)", Status)
+db.commit()
+
+#Populate User Table
+User = (1,'Bob','Joe')
+cursor.execute("INSERT OR REPLACE INTO Users VALUES(?,?,?)", User)
 db.commit()
 
 #Populate Country Table
@@ -394,7 +399,7 @@ db.commit()
 cursor.execute("DELETE FROM Current_AQ_Info WHERE AQ_Key = 1000") #change number to which key you want to delete (leave at 1000 to not delete anything)
 
 #Update file
-cursor.execute("UPDATE Current_AQ_Info SET Date = '2022-07-22' WHERE Date = '2022-07-21'")
+cursor.execute("UPDATE Current_AQ_Info SET Date = '2022-07-21' WHERE Date = '2022-07-22'")
 db.commit()
 
 #Select statment get data from Current_AQ_Info
