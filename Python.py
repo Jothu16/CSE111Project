@@ -76,7 +76,7 @@ cursor.execute("INSERT OR REPLACE INTO Function_Table VALUES(?,?,?,?)", Status)
 db.commit()
 
 Status = (6, 'Very Unhealthy', 301, 999999)
-cursor.execute("INSERT OR REPLACE INTO Function_Table VALUES(?,?,?,?)", Status)
+cursor.execute("INSERT OR REPLACE INTO Function_Table VALUES(?,?,?,?,?,?,?)", Status)
 db.commit()
 
 # Add Function_Table to the table and commit these changes to the database
