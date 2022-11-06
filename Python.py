@@ -3,14 +3,14 @@ import sqlite3
 db = sqlite3.connect("newdb.db")
 cursor = db.cursor()
 
-# cursor.execute("""CREATE TABLE Function_Table(
-#     AQ_Key INTEGER PRIMARY KEY,
-#     Date TEXT,
-#     Country TEXT,
-#     Status TEXT,
-#     AQI_Value TEXT,
-#     Continent TEXT,
-#     )""")
+cursor.execute("""CREATE TABLE Function_Table(
+    AQ_Key INTEGER PRIMARY KEY,
+    Date TEXT,
+    Country TEXT,
+    Status TEXT,
+    AQI_Value TEXT,
+    Continent TEXT
+    )""")
 
 # Add Function_Table to the table and commit these changes to the database
 Function_Table = (1,'2022-07-21','Albania','Good',14,'Europe')
