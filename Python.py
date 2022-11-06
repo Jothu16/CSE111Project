@@ -403,16 +403,23 @@ cursor.execute("UPDATE Current_AQ_Info SET Date = '2022-07-21' WHERE Date = '202
 db.commit()
 
 #Select statment get data from Current_AQ_Info
-cursor.execute("SELECT * FROM Current_AQ_Info")
-Current_AQ_Info = cursor.fetchall()
+#cursor.execute("SELECT * FROM Current_AQ_Info")
+#Current_AQ_Info = cursor.fetchall()
 
 # Loops through prints each row
-for row in Current_AQ_Info:
-    print(row)
+#for row in Current_AQ_Info:
+    #print(row)
 
-cursor.execute("SELECT * FROM Status")
-Status = cursor.fetchall()
+#cursor.execute("SELECT * FROM Status")
+#Status = cursor.fetchall()
 
 # Loops through prints each row
-for row in Status:
+#for row in Status:
+    #print(row)
+
+cursor.execute("""SELECT Current_AQ_Info.Country, Status.Description FROM Current_AQ_Info, Status
+                    WHERE Current_AQ_Info.AQI_Value >= Status.Threshold_Lower
+                    AND Current_AQ_Info.AQI_Value <= Status.Threshold_Upper""")
+output = cursor.fetchall()
+for row in output:
     print(row)
