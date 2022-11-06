@@ -35,14 +35,14 @@ cursor.execute("""CREATE TABLE Continent(
 
 cursor.execute("""CREATE TABLE Country(
      Region_Key INTEGER PRIMARY KEY,
-     Continent_Name TEXT,
+     Cont_Key Integer,
      Name TEXT
      )""")
 
 cursor.execute("""CREATE TABLE Capital_City(
      City_Key INTEGER PRIMARY KEY,
-     Continent_Name TEXT,
-     Region_Name TEXT, 
+     Cont_Key Integer,
+     Region_Key Integer, 
      Name TEXT
      )""")
 
@@ -94,87 +94,87 @@ cursor.execute("INSERT  INTO Users VALUES(?,?,?)", User)
 db.commit()
 
 #Populate Country Table
-Country = (1,'Europe','Albania')
+Country = (1, 1,'Albania')
 cursor.execute("INSERT  INTO Country VALUES(?,?,?)", Country)
 db.commit()
 
-Country = (2,'Africa','Algeria')
+Country = (2, 2,'Algeria')
 cursor.execute("INSERT  INTO Country VALUES(?,?,?)", Country)
 db.commit()
 
-Country = (3,'Europe','Andorra')
+Country = (3, 1,'Andorra')
 cursor.execute("INSERT  INTO Country VALUES(?,?,?)", Country)
 db.commit()
 
-Country = (4,'Africa','Angola')
+Country = (4, 2,'Angola')
 cursor.execute("INSERT  INTO Country VALUES(?,?,?)", Country)
 db.commit()
 
-Country = (5,'South America','Argentina')
+Country = (5, 3,'Argentina')
 cursor.execute("INSERT  INTO Country VALUES(?,?,?)", Country)
 db.commit()
 
-Country = (6,'Asia','Armenia')
+Country = (6, 4,'Armenia')
 cursor.execute("INSERT  INTO Country VALUES(?,?,?)", Country)
 db.commit()
 
-Country = (7,'Oceania','Australia')
+Country = (7, 5,'Australia')
 cursor.execute("INSERT  INTO Country VALUES(?,?,?)", Country)
 db.commit()
 
-Country = (8,'Europe','Austria')
+Country = (8, 1,'Austria')
 cursor.execute("INSERT  INTO Country VALUES(?,?,?)", Country)
 db.commit()
 
-Country = (9,'Asia','Azerbaijan')
+Country = (9, 4,'Azerbaijan')
 cursor.execute("INSERT  INTO Country VALUES(?,?,?)", Country)
 db.commit()
 
-Country = (10,'Asia','Bahrain')
+Country = (10, 4,'Bahrain')
 cursor.execute("INSERT  INTO Country VALUES(?,?,?)", Country)
 db.commit()
 
-Country = (11,'Asia','Bangladesh')
+Country = (11, 4,'Bangladesh')
 cursor.execute("INSERT  INTO Country VALUES(?,?,?)", Country)
 db.commit()
 
-Country = (12,'Europe','Belarus')
+Country = (12, 1,'Belarus')
 cursor.execute("INSERT  INTO Country VALUES(?,?,?)", Country)
 db.commit()
 
-Country = (13,'Europe','Belgium')
+Country = (13, 1,'Belgium')
 cursor.execute("INSERT  INTO Country VALUES(?,?,?)", Country)
 db.commit()
 
-Country = (14,'North America','Belize')
+Country = (14, 6,'Belize')
 cursor.execute("INSERT  INTO Country VALUES(?,?,?)", Country)
 db.commit()
 
-Country = (15,'North America','Bermuda')
+Country = (15, 6,'Bermuda')
 cursor.execute("INSERT  INTO Country VALUES(?,?,?)", Country)
 db.commit()
 
-Country = (16,'South America','Bolivia')
+Country = (16, 3,'Bolivia')
 cursor.execute("INSERT  INTO Country VALUES(?,?,?)", Country)
 db.commit()
 
-Country = (17,'Europe','Bosnia and Herzgovinia')
+Country = (17, 1,'Bosnia and Herzgovinia')
 cursor.execute("INSERT  INTO Country VALUES(?,?,?)", Country)
 db.commit()
 
-Country = (18,'South America','Brazil')
+Country = (18, 3,'Brazil')
 cursor.execute("INSERT  INTO Country VALUES(?,?,?)", Country)
 db.commit()
 
-Country = (19,'Asia','Brunei')
+Country = (19, 4,'Brunei')
 cursor.execute("INSERT  INTO Country VALUES(?,?,?)", Country)
 db.commit()
 
-Country = (20,'Europe','Bulgaria')
+Country = (20, 1,'Bulgaria')
 cursor.execute("INSERT  INTO Country VALUES(?,?,?)", Country)
 db.commit()
 
-Country = (21,'Africa','Burkina Faso')
+Country = (21, 2,'Burkina Faso')
 cursor.execute("INSERT  INTO Country VALUES(?,?,?)", Country)
 db.commit()
 
@@ -204,87 +204,87 @@ cursor.execute("INSERT  INTO Continent VALUES(?,?)", Continent)
 db.commit()
 
 #Populate Capitol Table
-Capital_City = (1,'Europe','Albania','Tirana')
+Capital_City = (1, 1, 1,'Tirana')
 cursor.execute("INSERT  INTO Capital_City VALUES(?,?,?,?)", Capital_City)
 db.commit()
 
-Capital_City = (2,'Africa','Algeria','Algiers')
+Capital_City = (2, 2, 2,'Algiers')
 cursor.execute("INSERT  INTO Capital_City VALUES(?,?,?,?)", Capital_City)
 db.commit()
 
-Capital_City = (3,'Europe','Andorra','Andorra la Vella')
+Capital_City = (3, 1, 3,'Andorra la Vella')
 cursor.execute("INSERT  INTO Capital_City VALUES(?,?,?,?)", Capital_City)
 db.commit()
 
-Capital_City = (4,'Africa','Angola','Luanda')
+Capital_City = (4, 2, 4,'Luanda')
 cursor.execute("INSERT  INTO Capital_City VALUES(?,?,?,?)", Capital_City)
 db.commit()
 
-Capital_City = (5,'South America','Argentina','Buenos Aires')
+Capital_City = (5, 3, 5,'Buenos Aires')
 cursor.execute("INSERT  INTO Capital_City VALUES(?,?,?,?)", Capital_City)
 db.commit()
 
-Capital_City = (6,'Asia','Armenia','Yerevan')
+Capital_City = (6, 4, 6,'Yerevan')
 cursor.execute("INSERT  INTO Capital_City VALUES(?,?,?,?)", Capital_City)
 db.commit()
 
-Capital_City = (7,'Oceania','Australia','Canberra')
+Capital_City = (7, 5, 7,'Canberra')
 cursor.execute("INSERT  INTO Capital_City VALUES(?,?,?,?)", Capital_City)
 db.commit()
 
-Capital_City = (8,'Europe','Austria','Vienna')
+Capital_City = (8, 1, 8,'Vienna')
 cursor.execute("INSERT  INTO Capital_City VALUES(?,?,?,?)", Capital_City)
 db.commit()
 
-Capital_City = (9,'Asia','Azerbaijan','Baku')
+Capital_City = (9, 4, 9,'Baku')
 cursor.execute("INSERT  INTO Capital_City VALUES(?,?,?,?)", Capital_City)
 db.commit()
 
-Capital_City = (10,'Asia','Bahrain','Manama')
+Capital_City = (10, 4, 10,'Manama')
 cursor.execute("INSERT  INTO Capital_City VALUES(?,?,?,?)", Capital_City)
 db.commit()
 
-Capital_City = (11,'Asia','Bangladesh','Dhaka')
+Capital_City = (11, 4, 11,'Dhaka')
 cursor.execute("INSERT  INTO Capital_City VALUES(?,?,?,?)", Capital_City)
 db.commit()
 
-Capital_City = (12,'Europe','Belarus','Minsk')
+Capital_City = (12, 1, 12,'Minsk')
 cursor.execute("INSERT  INTO Capital_City VALUES(?,?,?,?)", Capital_City)
 db.commit()
 
-Capital_City = (13,'Europe','Belgium','Burssels')
+Capital_City = (13, 1, 13,'Burssels')
 cursor.execute("INSERT  INTO Capital_City VALUES(?,?,?,?)", Capital_City)
 db.commit()
 
-Capital_City = (14,'North America','Belize','Belomopan')
+Capital_City = (14, 6, 14,'Belomopan')
 cursor.execute("INSERT  INTO Capital_City VALUES(?,?,?,?)", Capital_City)
 db.commit()
 
-Capital_City = (15,'North America','Bermuda','Hamilton')
+Capital_City = (15, 6, 15,'Hamilton')
 cursor.execute("INSERT  INTO Capital_City VALUES(?,?,?,?)", Capital_City)
 db.commit()
 
-Capital_City = (16,'South America','Bolivia','Sucre')
+Capital_City = (16, 3, 16,'Sucre')
 cursor.execute("INSERT  INTO Capital_City VALUES(?,?,?,?)", Capital_City)
 db.commit()
 
-Capital_City = (17,'Europe','Bosnia and Herzgovinia','Sarajevo')
+Capital_City = (17, 1, 17,'Sarajevo')
 cursor.execute("INSERT  INTO Capital_City VALUES(?,?,?,?)", Capital_City)
 db.commit()
 
-Capital_City = (18,'South America','Brazil','Brasilia')
+Capital_City = (18, 3, 18,'Brasilia')
 cursor.execute("INSERT  INTO Capital_City VALUES(?,?,?,?)", Capital_City)
 db.commit()
 
-Capital_City = (19,'Asia','Brunei','Branda Seri Begawan')
+Capital_City = (19, 4, 19,'Branda Seri Begawan')
 cursor.execute("INSERT  INTO Capital_City VALUES(?,?,?,?)", Capital_City)
 db.commit()
 
-Capital_City = (20,'Europe','Bulgaria','Sofia')
+Capital_City = (20, 1, 20,'Sofia')
 cursor.execute("INSERT  INTO Capital_City VALUES(?,?,?,?)", Capital_City)
 db.commit()
 
-Capital_City = (21,'Africa','Burkina Faso','Ouagadougou')
+Capital_City = (21, 2, 21,'Ouagadougou')
 cursor.execute("INSERT  INTO Capital_City VALUES(?,?,?,?)", Capital_City)
 db.commit()
 
