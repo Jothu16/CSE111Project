@@ -403,12 +403,12 @@ cursor.execute("UPDATE Current_AQ_Info SET Date = '2022-07-21' WHERE Date = '202
 db.commit()
 
 #Select statment get data from Current_AQ_Info
-#cursor.execute("SELECT * FROM Current_AQ_Info")
-#Current_AQ_Info = cursor.fetchall()
+cursor.execute("SELECT * FROM Current_AQ_Info")
+output = cursor.fetchall()
 
 # Loops through prints each row
-#for row in Current_AQ_Info:
-    #print(row)
+for row in output:
+    print(row)
 
 #cursor.execute("SELECT * FROM Status")
 #Status = cursor.fetchall()
