@@ -56,27 +56,27 @@ cursor.execute("""CREATE TABLE Status(
 
 #Populate Status Table
 Status = (1, 'Good', 0, 50)
-cursor.execute("INSERT OR REPLACE INTO Function_Table VALUES(?,?,?,?,?,?,?)", Status)
+cursor.execute("INSERT OR REPLACE INTO Function_Table VALUES(?,?,?,?)", Status)
 db.commit()
 
 Status = (2, 'Moderate', 51, 100)
-cursor.execute("INSERT OR REPLACE INTO Function_Table VALUES(?,?,?,?,?,?,?)", Status)
+cursor.execute("INSERT OR REPLACE INTO Function_Table VALUES(?,?,?,?)", Status)
 db.commit()
 
 Status = (3, 'Unhealthy for Sensitive Groups', 101, 150)
-cursor.execute("INSERT OR REPLACE INTO Function_Table VALUES(?,?,?,?,?,?,?)", Status)
+cursor.execute("INSERT OR REPLACE INTO Function_Table VALUES(?,?,?,?)", Status)
 db.commit()
 
 Status = (4, 'Unhealthy', 151, 200)
-cursor.execute("INSERT OR REPLACE INTO Function_Table VALUES(?,?,?,?,?,?,?)", Status)
+cursor.execute("INSERT OR REPLACE INTO Function_Table VALUES(?,?,?,?)", Status)
 db.commit()
 
 Status = (5, 'Very Unhealthy', 201, 300)
-cursor.execute("INSERT OR REPLACE INTO Function_Table VALUES(?,?,?,?,?,?,?)", Status)
+cursor.execute("INSERT OR REPLACE INTO Function_Table VALUES(?,?,?,?)", Status)
 db.commit()
 
 Status = (6, 'Very Unhealthy', 301, 999999)
-cursor.execute("INSERT OR REPLACE INTO Function_Table VALUES(?,?,?,?,?,?,?)", Status)
+cursor.execute("INSERT OR REPLACE INTO Function_Table VALUES(?,?,?,?)", Status)
 db.commit()
 
 # Add Function_Table to the table and commit these changes to the database
