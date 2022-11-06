@@ -3,7 +3,7 @@ import sqlite3
 db = sqlite3.connect("newdb.db")
 cursor = db.cursor()
 
-cursor.execute("DROP TABLE Air_Quality_Table")
+cursor.execute("DROP TABLE Current_AQ_Info")
 cursor.execute("DROP TABLE Users")
 cursor.execute("DROP TABLE Continent")
 cursor.execute("DROP TABLE Country")
@@ -12,7 +12,7 @@ cursor.execute("DROP TABLE History")
 cursor.execute("DROP TABLE Status")
 db.commit()
 
-cursor.execute("""CREATE TABLE Air_Quality_Table(
+cursor.execute("""CREATE TABLE Current_AQ_Info(
     AQ_Key INTEGER PRIMARY KEY,
     Date TEXT,
     Country TEXT,
@@ -174,121 +174,121 @@ cursor.execute("INSERT OR REPLACE INTO Capital_City VALUES(?,?,?,?)", Capital_Ci
 db.commit()
 
 
-# Add Air_Quality_Table to the table and commit these changes to the database
-Air_Quality_Table = (1,'2022-07-21','Albania','Good',14,'Europe','Tirana')
-cursor.execute("INSERT OR REPLACE INTO Air_Quality_Table VALUES(?,?,?,?,?,?,?)", Air_Quality_Table)
-cursor.execute("INSERT OR REPLACE INTO History VALUES(?,?,?,?,?,?,?)", Air_Quality_Table)
+# Add Current_AQ_Info to the table and commit these changes to the database
+Current_AQ_Info = (1,'2022-07-21','Albania','Good',14,'Europe','Tirana')
+cursor.execute("INSERT OR REPLACE INTO Current_AQ_Info VALUES(?,?,?,?,?,?,?)", Current_AQ_Info)
+cursor.execute("INSERT OR REPLACE INTO History VALUES(?,?,?,?,?,?,?)", Current_AQ_Info)
 db.commit()
 
-Air_Quality_Table = (2,'2022-07-21','Algeria','Moderate',65,'Africa','Algiers')
-cursor.execute("INSERT OR REPLACE INTO Air_Quality_Table VALUES(?,?,?,?,?,?,?)", Air_Quality_Table)
-cursor.execute("INSERT OR REPLACE INTO History VALUES(?,?,?,?,?,?,?)", Air_Quality_Table)
+Current_AQ_Info = (2,'2022-07-21','Algeria','Moderate',65,'Africa','Algiers')
+cursor.execute("INSERT OR REPLACE INTO Current_AQ_Info VALUES(?,?,?,?,?,?,?)", Current_AQ_Info)
+cursor.execute("INSERT OR REPLACE INTO History VALUES(?,?,?,?,?,?,?)", Current_AQ_Info)
 db.commit()
 
-Air_Quality_Table = (3,'2022-07-21','Andorra','Moderate',55,'Europe','Andorra la Vella')
-cursor.execute("INSERT OR REPLACE INTO Air_Quality_Table VALUES(?,?,?,?,?,?,?)", Air_Quality_Table)
-cursor.execute("INSERT OR REPLACE INTO History VALUES(?,?,?,?,?,?,?)", Air_Quality_Table)
+Current_AQ_Info = (3,'2022-07-21','Andorra','Moderate',55,'Europe','Andorra la Vella')
+cursor.execute("INSERT OR REPLACE INTO Current_AQ_Info VALUES(?,?,?,?,?,?,?)", Current_AQ_Info)
+cursor.execute("INSERT OR REPLACE INTO History VALUES(?,?,?,?,?,?,?)", Current_AQ_Info)
 db.commit()
 
-Air_Quality_Table = (4, '2022-07-21','Angola','Unhealthy for Sensitive Groups',113,'Africa','Luanda')
-cursor.execute("INSERT OR REPLACE INTO Air_Quality_Table VALUES(?,?,?,?,?,?,?)", Air_Quality_Table)
-cursor.execute("INSERT OR REPLACE INTO History VALUES(?,?,?,?,?,?,?)", Air_Quality_Table)
+Current_AQ_Info = (4, '2022-07-21','Angola','Unhealthy for Sensitive Groups',113,'Africa','Luanda')
+cursor.execute("INSERT OR REPLACE INTO Current_AQ_Info VALUES(?,?,?,?,?,?,?)", Current_AQ_Info)
+cursor.execute("INSERT OR REPLACE INTO History VALUES(?,?,?,?,?,?,?)", Current_AQ_Info)
 db.commit()
 
-Air_Quality_Table = (5, '2022-07-21','Argentina','Moderate',63,'South America','Buenos Aires')
-cursor.execute("INSERT OR REPLACE INTO Air_Quality_Table VALUES(?,?,?,?,?,?,?)", Air_Quality_Table)
-cursor.execute("INSERT OR REPLACE INTO History VALUES(?,?,?,?,?,?,?)", Air_Quality_Table)
+Current_AQ_Info = (5, '2022-07-21','Argentina','Moderate',63,'South America','Buenos Aires')
+cursor.execute("INSERT OR REPLACE INTO Current_AQ_Info VALUES(?,?,?,?,?,?,?)", Current_AQ_Info)
+cursor.execute("INSERT OR REPLACE INTO History VALUES(?,?,?,?,?,?,?)", Current_AQ_Info)
 db.commit()
 
-Air_Quality_Table = (6, '2022-07-21','Armenia','Moderate',76,'Asia','Yerevan')
-cursor.execute("INSERT OR REPLACE INTO Air_Quality_Table VALUES(?,?,?,?,?,?,?)", Air_Quality_Table)
-cursor.execute("INSERT OR REPLACE INTO History VALUES(?,?,?,?,?,?,?)", Air_Quality_Table)
+Current_AQ_Info = (6, '2022-07-21','Armenia','Moderate',76,'Asia','Yerevan')
+cursor.execute("INSERT OR REPLACE INTO Current_AQ_Info VALUES(?,?,?,?,?,?,?)", Current_AQ_Info)
+cursor.execute("INSERT OR REPLACE INTO History VALUES(?,?,?,?,?,?,?)", Current_AQ_Info)
 db.commit()
 
-Air_Quality_Table = (7, '2022-07-21','Australia','Moderate',56,'Oceania','Canberra')
-cursor.execute("INSERT OR REPLACE INTO Air_Quality_Table VALUES(?,?,?,?,?,?,?)", Air_Quality_Table)
-cursor.execute("INSERT OR REPLACE INTO History VALUES(?,?,?,?,?,?,?)", Air_Quality_Table)
+Current_AQ_Info = (7, '2022-07-21','Australia','Moderate',56,'Oceania','Canberra')
+cursor.execute("INSERT OR REPLACE INTO Current_AQ_Info VALUES(?,?,?,?,?,?,?)", Current_AQ_Info)
+cursor.execute("INSERT OR REPLACE INTO History VALUES(?,?,?,?,?,?,?)", Current_AQ_Info)
 db.commit()
 
-Air_Quality_Table = (8, '2022-07-21','Austria','Good',45,'Europe','Vienna')
-cursor.execute("INSERT OR REPLACE INTO Air_Quality_Table VALUES(?,?,?,?,?,?,?)", Air_Quality_Table)
-cursor.execute("INSERT OR REPLACE INTO History VALUES(?,?,?,?,?,?,?)", Air_Quality_Table)
+Current_AQ_Info = (8, '2022-07-21','Austria','Good',45,'Europe','Vienna')
+cursor.execute("INSERT OR REPLACE INTO Current_AQ_Info VALUES(?,?,?,?,?,?,?)", Current_AQ_Info)
+cursor.execute("INSERT OR REPLACE INTO History VALUES(?,?,?,?,?,?,?)", Current_AQ_Info)
 db.commit()
 
-Air_Quality_Table = (9, '2022-07-21','Azerbaijan','Good',12,'Asia','Baku')
-cursor.execute("INSERT OR REPLACE INTO Air_Quality_Table VALUES(?,?,?,?,?,?,?)", Air_Quality_Table)
-cursor.execute("INSERT OR REPLACE INTO History VALUES(?,?,?,?,?,?,?)", Air_Quality_Table)
+Current_AQ_Info = (9, '2022-07-21','Azerbaijan','Good',12,'Asia','Baku')
+cursor.execute("INSERT OR REPLACE INTO Current_AQ_Info VALUES(?,?,?,?,?,?,?)", Current_AQ_Info)
+cursor.execute("INSERT OR REPLACE INTO History VALUES(?,?,?,?,?,?,?)", Current_AQ_Info)
 db.commit()
 
-Air_Quality_Table = (10, '2022-07-21','Bahrain','Unhealthy',165,'Asia','Manama')
-cursor.execute("INSERT OR REPLACE INTO Air_Quality_Table VALUES(?,?,?,?,?,?,?)", Air_Quality_Table)
-cursor.execute("INSERT OR REPLACE INTO History VALUES(?,?,?,?,?,?,?)", Air_Quality_Table)
+Current_AQ_Info = (10, '2022-07-21','Bahrain','Unhealthy',165,'Asia','Manama')
+cursor.execute("INSERT OR REPLACE INTO Current_AQ_Info VALUES(?,?,?,?,?,?,?)", Current_AQ_Info)
+cursor.execute("INSERT OR REPLACE INTO History VALUES(?,?,?,?,?,?,?)", Current_AQ_Info)
 db.commit()
 
-Air_Quality_Table = (11,'2022-07-21','Bangladesh','Unhealthy for Sensitive Groups',141,'Asia','Dhaka')
-cursor.execute("INSERT OR REPLACE INTO Air_Quality_Table VALUES(?,?,?,?,?,?,?)", Air_Quality_Table)
-cursor.execute("INSERT OR REPLACE INTO History VALUES(?,?,?,?,?,?,?)", Air_Quality_Table)
+Current_AQ_Info = (11,'2022-07-21','Bangladesh','Unhealthy for Sensitive Groups',141,'Asia','Dhaka')
+cursor.execute("INSERT OR REPLACE INTO Current_AQ_Info VALUES(?,?,?,?,?,?,?)", Current_AQ_Info)
+cursor.execute("INSERT OR REPLACE INTO History VALUES(?,?,?,?,?,?,?)", Current_AQ_Info)
 db.commit()
 
-Air_Quality_Table = (12, '2022-07-21','Belarus','Good',13,'Europe','Minsk')
-cursor.execute("INSERT OR REPLACE INTO Air_Quality_Table VALUES(?,?,?,?,?,?,?)", Air_Quality_Table)
-cursor.execute("INSERT OR REPLACE INTO History VALUES(?,?,?,?,?,?,?)", Air_Quality_Table)
+Current_AQ_Info = (12, '2022-07-21','Belarus','Good',13,'Europe','Minsk')
+cursor.execute("INSERT OR REPLACE INTO Current_AQ_Info VALUES(?,?,?,?,?,?,?)", Current_AQ_Info)
+cursor.execute("INSERT OR REPLACE INTO History VALUES(?,?,?,?,?,?,?)", Current_AQ_Info)
 db.commit()
 
-Air_Quality_Table = (13, '2022-07-21','Belgium','Moderate',61,'Europe','Brussels')
-cursor.execute("INSERT OR REPLACE INTO Air_Quality_Table VALUES(?,?,?,?,?,?,?)", Air_Quality_Table)
-cursor.execute("INSERT OR REPLACE INTO History VALUES(?,?,?,?,?,?,?)", Air_Quality_Table)
+Current_AQ_Info = (13, '2022-07-21','Belgium','Moderate',61,'Europe','Brussels')
+cursor.execute("INSERT OR REPLACE INTO Current_AQ_Info VALUES(?,?,?,?,?,?,?)", Current_AQ_Info)
+cursor.execute("INSERT OR REPLACE INTO History VALUES(?,?,?,?,?,?,?)", Current_AQ_Info)
 db.commit()
 
-Air_Quality_Table = (14, '2022-07-21','Belize','Good',28,'North America','Belmopan')
-cursor.execute("INSERT OR REPLACE INTO Air_Quality_Table VALUES(?,?,?,?,?,?,?)", Air_Quality_Table)
-cursor.execute("INSERT OR REPLACE INTO History VALUES(?,?,?,?,?,?,?)", Air_Quality_Table)
+Current_AQ_Info = (14, '2022-07-21','Belize','Good',28,'North America','Belmopan')
+cursor.execute("INSERT OR REPLACE INTO Current_AQ_Info VALUES(?,?,?,?,?,?,?)", Current_AQ_Info)
+cursor.execute("INSERT OR REPLACE INTO History VALUES(?,?,?,?,?,?,?)", Current_AQ_Info)
 db.commit()
 
-Air_Quality_Table = (15, '2022-07-21','Bermuda','Good',12,'North America','Hamilton')
-cursor.execute("INSERT OR REPLACE INTO Air_Quality_Table VALUES(?,?,?,?,?,?,?)", Air_Quality_Table)
-cursor.execute("INSERT OR REPLACE INTO History VALUES(?,?,?,?,?,?,?)", Air_Quality_Table)
+Current_AQ_Info = (15, '2022-07-21','Bermuda','Good',12,'North America','Hamilton')
+cursor.execute("INSERT OR REPLACE INTO Current_AQ_Info VALUES(?,?,?,?,?,?,?)", Current_AQ_Info)
+cursor.execute("INSERT OR REPLACE INTO History VALUES(?,?,?,?,?,?,?)", Current_AQ_Info)
 db.commit()
 
-Air_Quality_Table = (16, '2022-07-21','Bolivia','Good',9,'South America','Sucre')
-cursor.execute("INSERT OR REPLACE INTO Air_Quality_Table VALUES(?,?,?,?,?,?,?)", Air_Quality_Table)
-cursor.execute("INSERT OR REPLACE INTO History VALUES(?,?,?,?,?,?,?)", Air_Quality_Table)
+Current_AQ_Info = (16, '2022-07-21','Bolivia','Good',9,'South America','Sucre')
+cursor.execute("INSERT OR REPLACE INTO Current_AQ_Info VALUES(?,?,?,?,?,?,?)", Current_AQ_Info)
+cursor.execute("INSERT OR REPLACE INTO History VALUES(?,?,?,?,?,?,?)", Current_AQ_Info)
 db.commit()
 
-Air_Quality_Table = (17, '2022-07-21','Bosnia and Herzegovina','Moderate',58,'Europe','Sarajevo')
-cursor.execute("INSERT OR REPLACE INTO Air_Quality_Table VALUES(?,?,?,?,?,?,?)", Air_Quality_Table)
-cursor.execute("INSERT OR REPLACE INTO History VALUES(?,?,?,?,?,?,?)", Air_Quality_Table)
+Current_AQ_Info = (17, '2022-07-21','Bosnia and Herzegovina','Moderate',58,'Europe','Sarajevo')
+cursor.execute("INSERT OR REPLACE INTO Current_AQ_Info VALUES(?,?,?,?,?,?,?)", Current_AQ_Info)
+cursor.execute("INSERT OR REPLACE INTO History VALUES(?,?,?,?,?,?,?)", Current_AQ_Info)
 db.commit()
 
-Air_Quality_Table = (18, '2022-07-21','Brazil','Moderate',67,'South America','Brasilia')
-cursor.execute("INSERT OR REPLACE INTO Air_Quality_Table VALUES(?,?,?,?,?,?,?)", Air_Quality_Table)
-cursor.execute("INSERT OR REPLACE INTO History VALUES(?,?,?,?,?,?,?)", Air_Quality_Table)
+Current_AQ_Info = (18, '2022-07-21','Brazil','Moderate',67,'South America','Brasilia')
+cursor.execute("INSERT OR REPLACE INTO Current_AQ_Info VALUES(?,?,?,?,?,?,?)", Current_AQ_Info)
+cursor.execute("INSERT OR REPLACE INTO History VALUES(?,?,?,?,?,?,?)", Current_AQ_Info)
 db.commit()
 
-Air_Quality_Table = (19, '2022-07-21','Brunei','Good',15,'Asia','Banda Seri Begawan')
-cursor.execute("INSERT OR REPLACE INTO Air_Quality_Table VALUES(?,?,?,?,?,?,?)", Air_Quality_Table)
-cursor.execute("INSERT OR REPLACE INTO History VALUES(?,?,?,?,?,?,?)", Air_Quality_Table)
+Current_AQ_Info = (19, '2022-07-21','Brunei','Good',15,'Asia','Banda Seri Begawan')
+cursor.execute("INSERT OR REPLACE INTO Current_AQ_Info VALUES(?,?,?,?,?,?,?)", Current_AQ_Info)
+cursor.execute("INSERT OR REPLACE INTO History VALUES(?,?,?,?,?,?,?)", Current_AQ_Info)
 db.commit()
 
-Air_Quality_Table = (20, '2022-07-21','Bulgaria','Good',28,'Europe','Sofia')
-cursor.execute("INSERT OR REPLACE INTO Air_Quality_Table VALUES(?,?,?,?,?,?,?)", Air_Quality_Table)
-cursor.execute("INSERT OR REPLACE INTO History VALUES(?,?,?,?,?,?,?)", Air_Quality_Table)
+Current_AQ_Info = (20, '2022-07-21','Bulgaria','Good',28,'Europe','Sofia')
+cursor.execute("INSERT OR REPLACE INTO Current_AQ_Info VALUES(?,?,?,?,?,?,?)", Current_AQ_Info)
+cursor.execute("INSERT OR REPLACE INTO History VALUES(?,?,?,?,?,?,?)", Current_AQ_Info)
 db.commit()
 
-Air_Quality_Table = (21, '2022-07-21','Burkina Faso','Unhealthy for Sensitive Groups',118,'Africa','Ouagadougou')
-cursor.execute("INSERT OR REPLACE INTO Air_Quality_Table VALUES(?,?,?,?,?,?,?)", Air_Quality_Table)
-cursor.execute("INSERT OR REPLACE INTO History VALUES(?,?,?,?,?,?,?)", Air_Quality_Table)
+Current_AQ_Info = (21, '2022-07-21','Burkina Faso','Unhealthy for Sensitive Groups',118,'Africa','Ouagadougou')
+cursor.execute("INSERT OR REPLACE INTO Current_AQ_Info VALUES(?,?,?,?,?,?,?)", Current_AQ_Info)
+cursor.execute("INSERT OR REPLACE INTO History VALUES(?,?,?,?,?,?,?)", Current_AQ_Info)
 db.commit()
 
 #Delete data(needs fixing or maybe put into separate file)
-cursor.execute("DELETE FROM Air_Quality_Table WHERE AQ_Key = 1000") #change number to which key you want to delete (leave at 1000 to not delete anything)
+cursor.execute("DELETE FROM Current_AQ_Info WHERE AQ_Key = 1000") #change number to which key you want to delete (leave at 1000 to not delete anything)
 
-#Select statment get data from Air_Quality_Table
-cursor.execute("SELECT * FROM Air_Quality_Table")
-Air_Quality_Table = cursor.fetchall()
+#Select statment get data from Current_AQ_Info
+cursor.execute("SELECT * FROM Current_AQ_Info")
+Current_AQ_Info = cursor.fetchall()
 
 # Loops through prints each row
-for row in Air_Quality_Table:
+for row in Current_AQ_Info:
     print(row)
 
 cursor.execute("SELECT * FROM Status")
