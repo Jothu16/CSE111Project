@@ -13,6 +13,72 @@ cursor.execute("""CREATE TABLE Function_Table(
     Capital City TEXT
     )""")
 
+cursor.execute("""CREATE TABLE Users(
+     Usser_Key INTEGER PRIMARY KEY,
+     First_Name TEXT,
+     Last_Name TEXT
+     )""")
+
+cursor.execute("""CREATE TABLE Continent(
+     Cont_Key INTEGER PRIMARY KEY,
+     Name TEXT
+     )""")
+
+cursor.execute("""CREATE TABLE Region(
+     Region_Key INTEGER PRIMARY KEY,
+     Continent_Name TEXT,
+     Name TEXT
+     )""")
+
+cursor.execute("""CREATE TABLE Capital_City(
+     City_Key INTEGER PRIMARY KEY,
+     Continent_Name TEXT,
+     Region_Name TEXT, 
+     Name TEXT
+     )""")
+
+cursor.execute("""CREATE TABLE History(
+    History_Key INTEGER PRIMARY KEY,
+    Date TEXT,
+    Country TEXT,
+    Status TEXT,
+    AQI_Value TEXT,
+    Continent TEXT,
+    Capital City TEXT
+    )""")
+
+cursor.execute("""CREATE TABLE Status(
+     Status_Key INTEGER PRIMARY KEY,
+     Description TEXT,
+     Threshold_Lower INTEGER,
+     Threshold_Upper INTEGER
+     )""")
+
+#Populate Status Table
+Status = (1, 'Good', 0, 50)
+cursor.execute("INSERT OR REPLACE INTO Function_Table VALUES(?,?,?,?,?,?,?)", Status)
+db.commit()
+
+Status = (2, 'Moderate', 51, 100)
+cursor.execute("INSERT OR REPLACE INTO Function_Table VALUES(?,?,?,?,?,?,?)", Status)
+db.commit()
+
+Status = (3, 'Unhealthy for Sensitive Groups', 101, 150)
+cursor.execute("INSERT OR REPLACE INTO Function_Table VALUES(?,?,?,?,?,?,?)", Status)
+db.commit()
+
+Status = (4, 'Unhealthy', 151, 200)
+cursor.execute("INSERT OR REPLACE INTO Function_Table VALUES(?,?,?,?,?,?,?)", Status)
+db.commit()
+
+Status = (5, 'Very Unhealthy', 201, 300)
+cursor.execute("INSERT OR REPLACE INTO Function_Table VALUES(?,?,?,?,?,?,?)", Status)
+db.commit()
+
+Status = (6, 'Very Unhealthy', 301, 999999)
+cursor.execute("INSERT OR REPLACE INTO Function_Table VALUES(?,?,?,?,?,?,?)", Status)
+db.commit()
+
 # Add Function_Table to the table and commit these changes to the database
 Function_Table = (1,'2022-07-21','Albania','Good',14,'Europe','Tirana')
 cursor.execute("INSERT OR REPLACE INTO Function_Table VALUES(?,?,?,?,?,?,?)", Function_Table)
