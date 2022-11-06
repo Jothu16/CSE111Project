@@ -283,6 +283,9 @@ db.commit()
 #Delete data(needs fixing or maybe put into separate file)
 cursor.execute("DELETE FROM Current_AQ_Info WHERE AQ_Key = 1000") #change number to which key you want to delete (leave at 1000 to not delete anything)
 
+#Update file
+cursor.execute("UPDATE Current_AQ_Info SET Date = '2022-07-22' WHERE Date = '2022-07-21'")
+
 #Select statment get data from Current_AQ_Info
 cursor.execute("SELECT * FROM Current_AQ_Info")
 Current_AQ_Info = cursor.fetchall()
