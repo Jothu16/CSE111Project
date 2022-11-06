@@ -10,7 +10,7 @@ cursor.execute("DROP TABLE Region")
 cursor.execute("DROP TABLE Capital_City")
 cursor.execute("DROP TABLE History")
 cursor.execute("DROP TABLE Status")
-cursor.commit()
+db.commit()
 
 cursor.execute("""CREATE TABLE Function_Table(
     AQ_Key INTEGER PRIMARY KEY,
