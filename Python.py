@@ -115,6 +115,18 @@ User = (3,'Chieh','Lin')
 cursor.execute("INSERT INTO Users VALUES(?,?,?)", User)
 db.commit()
 
+User = (4,'Kiana','Kaslana')
+cursor.execute("INSERT INTO Users VALUES(?,?,?)", User)
+db.commit()
+
+User = (5,'Mei','Raiden')
+cursor.execute("INSERT INTO Users VALUES(?,?,?)", User)
+db.commit()
+
+User = (6,'Bronya','Zaychik')
+cursor.execute("INSERT INTO Users VALUES(?,?,?)", User)
+db.commit()
+
 #Populate Country Table
 Country = (1, 1,'Albania')
 cursor.execute("INSERT INTO Country VALUES(?,?,?)", Country)
@@ -420,19 +432,19 @@ History = (18, '2022-07-21', 67, 18)
 cursor.execute("INSERT  INTO History VALUES(?,?,?,?)", History)
 db.commit()
 
-Current_AQ_Info = (19, '2022-07-21', 15, 19, 1)
+Current_AQ_Info = (19, '2022-07-21', 15, 19, 4)
 cursor.execute("INSERT INTO Current_AQ_Info VALUES(?,?,?,?,?)", Current_AQ_Info)
 History = (19, '2022-07-21', 15, 19)
 cursor.execute("INSERT INTO History VALUES(?,?,?,?)", History)
 db.commit()
 
-Current_AQ_Info = (20, '2022-07-21', 28, 20, 2)
+Current_AQ_Info = (20, '2022-07-21', 28, 20, 5)
 cursor.execute("INSERT INTO Current_AQ_Info VALUES(?,?,?,?,?)", Current_AQ_Info)
 History = (20, '2022-07-21', 28, 20)
 cursor.execute("INSERT INTO History VALUES(?,?,?,?)", History)
 db.commit()
 
-Current_AQ_Info = (21, '2022-07-21', 118, 21, 3)
+Current_AQ_Info = (21, '2022-07-21', 118, 21, 6)
 cursor.execute("INSERT INTO Current_AQ_Info VALUES(?,?,?,?,?)", Current_AQ_Info)
 History = (21, '2022-07-21', 118, 21)
 cursor.execute("INSERT INTO History VALUES(?,?,?,?)", History)
