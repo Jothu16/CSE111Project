@@ -450,7 +450,7 @@ History = (21, '2022-07-21', 118, 21)
 cursor.execute("INSERT INTO History VALUES(?,?,?,?)", History)
 db.commit()
 
-#statement count: 12
+#statement count: 13
 
 #count amount of history entries and user entries
 cursor.execute("SELECT COUNT(History.History_Key) FROM History UNION SELECT COUNT(Users.User_Key) FROM Users")
@@ -559,6 +559,21 @@ cursor.execute("""SELECT Country.Name FROM Current_AQ_Info, Capital_City, Countr
 output = cursor.fetchall()
 #for row in output:
     #print(row)
+
+#print all continents with a country with "good" status and how many
+cursor.execute("""SELECT Continent.Name, COUNT(Country.Name) FROM Current_AQ_Info
+                    INNER JOIN Capital_City ON Current_AQ_Info.City_Key = Capital_City.City_Key
+                    INNER JOIN Country ON Capital_City.Country_Key = Country.Country_Key
+                    INNER JOIN Continent ON Country.Cont_Key = Continent.Cont_Key
+                    INNER JOIN (SELECT DISTINCT Capital_City.Name AS good_ones FROM Current_AQ_Info, Status
+                                        INNER JOIN Capital_City ON Current_AQ_Info.City_Key = Capital_City.City_Key
+                                        WHERE Current_AQ_Info.AQI_Value >= 0
+                                        AND Current_AQ_Info.AQI_Value <= 50)
+                         AS good_cities ON good_cities.good_ones = Capital_City.Name
+                    GROUP BY Continent.Name""")
+output = cursor.fetchall()
+for row in output:
+    print(row)
 
 # select all countries status
 cursor.execute("""SELECT Country.Name, Status.Description FROM Current_AQ_Info, Status, Capital_City, Country
