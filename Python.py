@@ -450,21 +450,24 @@ History = (21, '2022-07-21', 118, 21)
 cursor.execute("INSERT INTO History VALUES(?,?,?,?)", History)
 db.commit()
 
-#statement count: 8
+#statement count: 12
 
 #count amount of history entries and user entries
 cursor.execute("SELECT COUNT(History.History_Key) FROM History UNION SELECT COUNT(Users.User_Key) FROM Users")
 max_user_key = cursor.fetchone()[0]
 max_hist_key = cursor.fetchone()[0]
+#print(max_user_key, max_hist_key)
 
-#count the amount of countries and their capital cities (city count = country count since country can only have 1 capital)
+#count the amount of countries and their capital cities and their entries(city count = country count since country can only have 1 capital)
 cursor.execute("SELECT COUNT(Capital_City.City_Key) FROM Capital_City")
-max_country_key = max_city_key = cursor.fetchone()[0]
+max_country_key = max_city_key = max_aq_key = cursor.fetchone()[0]
+#print(max_country_key, max_city_key, max_aq_key)
 
 #get userkey
-name = ('Mei', 'Raiden')
+name = ('Bronya', 'Zaychik')
 cursor.execute("SELECT Users.User_Key FROM Users WHERE Users.First_Name = ? AND Users.Last_Name = ?", name)
 user_key = cursor.fetchone()[0]
+#print(user_key)
 
 #add new user
 max_user_key += 1
@@ -477,6 +480,7 @@ selected_city = 'Ouagadougou'
 cursor.execute("SELECT Capital_City.City_Key FROM Capital_City WHERE Capital_City.Name = ?", [selected_city])
 output = cursor.fetchone()[0]
 cursor.execute("DELETE FROM Current_AQ_Info WHERE Current_AQ_Info.City_Key = ?", [output])
+max_aq_key -= 1
 
 #Update file - date = new_date where date = old_date
 new_date = '2022-07-22'
@@ -484,7 +488,7 @@ old_date = '2022-07-21'
 dates = (new_date, old_date)
 cursor.execute("UPDATE Current_AQ_Info SET Date = ? WHERE Date = ?", dates)
 
-#update aqi value of a city - records user who did - put in for loop later
+#update aqi value of a city - records user who did - check valid data later
 city_key = 1
 new_AQI_value = 69
 updated_values = (new_AQI_value, user_key, city_key)
@@ -495,13 +499,66 @@ new_history = (max_hist_key, new_date, new_AQI_value, city_key)
 cursor.execute("INSERT INTO History VALUES(?,?,?,?)", new_history)
 db.commit()
 
+#add new entry to current aq database
+max_aq_key += 1
+city_key = 21
+AQI_value = 420
+date = '2022-07-22'
+new_entry = (max_aq_key, date, AQI_value, city_key, user_key)
+cursor.execute("INSERT INTO Current_AQ_Info VALUES (?,?,?,?,?)", new_entry)
+db.commit()
+
 #Select statment get data from Current_AQ_Info
 cursor.execute("SELECT * FROM Current_AQ_Info")
 output = cursor.fetchall()
-
 # Loops through prints each row
-for row in output:
-    print(row)
+#for row in output:
+     #print(row)
+
+#count all edits made by users today form lowest to highest
+cursor.execute("""SELECT Users.First_Name, Users.Last_Name, COUNT(Current_AQ_Info.User_Key) as cnt
+                    FROM Current_AQ_Info
+                    INNER JOIN Users ON Current_AQ_Info.User_Key = Users.User_Key
+                    GROUP BY Users.First_Name, Users.Last_Name
+                    ORDER BY cnt""")
+output = cursor.fetchall()
+#for row in output:
+    #print(row)
+
+#print lowest and highest country's AQI Value
+cursor.execute("""SELECT best_con.Name, MIN(best_aq.AQI_Value)
+                    FROM Current_AQ_Info best_aq
+                    INNER JOIN Capital_City best_city ON best_aq.City_Key = best_city.City_Key
+                    INNER JOIN Country best_con ON best_city.Country_Key = best_con.Country_Key
+               UNION
+                  SELECT worst_con.Name, MAX(worst_aq.AQI_Value)
+                    FROM Current_AQ_Info worst_aq
+                    INNER JOIN Capital_City worst_city ON worst_aq.City_Key = worst_city.City_Key
+                    INNER JOIN Country worst_con ON worst_city.Country_Key = worst_con.Country_Key""")
+output = cursor.fetchall()
+#for row in output:
+    #print(row)
+
+#print all cities with a "good" status
+cursor.execute("""SELECT DISTINCT Capital_City.Name FROM Current_AQ_Info, Status
+                    INNER JOIN Capital_City ON Current_AQ_Info.City_Key = Capital_City.City_Key
+                    WHERE Current_AQ_Info.AQI_Value >= 0
+                    AND Current_AQ_Info.AQI_Value <= 50""")
+output = cursor.fetchall()
+#for row in output:
+    #print(row)
+
+#print all countries with a "good" status
+cursor.execute("""SELECT Country.Name FROM Current_AQ_Info, Capital_City, Country
+                    WHERE Current_AQ_Info.City_Key = Capital_City.City_Key
+                    AND Capital_City.Country_Key = Country.Country_Key
+                    AND Capital_City.Name IN (SELECT DISTINCT Capital_City.Name FROM Current_AQ_Info, Status
+                                                  INNER JOIN Capital_City ON Current_AQ_Info.City_Key = Capital_City.City_Key
+                                                  WHERE Current_AQ_Info.AQI_Value >= 0
+                                                  AND Current_AQ_Info.AQI_Value <= 50)""")
+output = cursor.fetchall()
+#for row in output:
+    #print(row)
 
 # select all countries status
 cursor.execute("""SELECT Country.Name, Status.Description FROM Current_AQ_Info, Status, Capital_City, Country
@@ -510,5 +567,5 @@ cursor.execute("""SELECT Country.Name, Status.Description FROM Current_AQ_Info, 
                     AND Current_AQ_Info.City_Key = Capital_City.City_Key
                     AND Capital_City.Country_Key = Country.Country_Key""")
 output = cursor.fetchall()
-for row in output:
-    print(row)
+#for row in output:
+    #print(row)
