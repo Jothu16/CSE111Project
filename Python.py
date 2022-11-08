@@ -450,11 +450,17 @@ History = (21, '2022-07-21', 118, 21)
 cursor.execute("INSERT INTO History VALUES(?,?,?,?)", History)
 db.commit()
 
-#Delete data(needs fixing or maybe put into separate file)
-cursor.execute("DELETE FROM Current_AQ_Info WHERE AQ_Key = 1000") #change number to which key you want to delete (leave at 1000 to not delete anything)
+#statement count: 5
 
-#Update file
-cursor.execute("UPDATE Current_AQ_Info SET Date = '2022-07-22' WHERE Date = '2022-07-21'")
+#Delete data relating to a city
+selected_city = 'Ouagadougou'
+cursor.execute("SELECT Capital_City.City_Key FROM Capital_City WHERE Capital_City.Name = ?", [selected_city])
+output = cursor.fetchone()[0]
+cursor.execute("DELETE FROM Current_AQ_Info WHERE Current_AQ_Info.City_Key = ?", [output])
+
+#Update file - date = new_date where date = old_date
+dates = ('2022-07-22', '2022-07-21')
+cursor.execute("UPDATE Current_AQ_Info SET Date = ? WHERE Date = ?", dates)
 db.commit()
 
 #Select statment get data from Current_AQ_Info
@@ -465,13 +471,7 @@ output = cursor.fetchall()
 for row in output:
     print(row)
 
-#cursor.execute("SELECT * FROM Status")
-#Status = cursor.fetchall()
-
-# Loops through prints each row
-#for row in Status:
-    #print(row)
-
+# select all countries status
 cursor.execute("""SELECT Country.Name, Status.Description FROM Current_AQ_Info, Status, Capital_City, Country
                     WHERE Current_AQ_Info.AQI_Value >= Status.Threshold_Lower
                     AND Current_AQ_Info.AQI_Value <= Status.Threshold_Upper
