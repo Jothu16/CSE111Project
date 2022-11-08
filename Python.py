@@ -475,11 +475,61 @@ new_user = (max_user_key, 'Florin', 'Rusu')
 cursor.execute("INSERT INTO Users VALUES(?,?,?)", new_user)
 db.commit()
 
+#delete user
+first_name = 'Florin'
+last_name = 'Rusu'
+delete_user = (first_name, last_name)
+cursor.execute("DELETE FROM Users WHERE Users.First_Name = ? AND Users.Last_Name = ?", delete_user)
+cursor.execute("UPDATE Users SET User_Key = User_Key - 1 WHERE User_Key >= ?", [max_user_key])
+db.commit()
+max_user_key -= 1
+
+#add new country
+max_country_key += 1
+country = 'United States'
+continent = 'North America'
+cursor.execute("SELECT Cont_Key FROM Continent WHERE Name = ?", [continent])
+cont_key = cursor.fetchone()[0]
+
+new_country = (max_country_key, cont_key, country)
+cursor.execute("INSERT INTO Country VALUES(?,?,?)", new_country)
+db.commit()
+
+#add new city
+max_city_key += 1
+capital = 'Washington D.C.'
+country = 'United States'
+cursor.execute("SELECT Country_Key FROM Country WHERE Name = ?", [country])
+country_key = cursor.fetchone()[0]
+
+continent = 'North America'
+cursor.execute("SELECT Cont_Key FROM Continent WHERE Name = ?", [continent])
+cont_key = cursor.fetchone()[0]
+
+new_city = (max_city_key, cont_key, country_key, capital)
+cursor.execute("INSERT INTO Capital_City VALUES(?,?,?,?)", new_city)
+db.commit()
+
+#delete country
+country = 'United States'
+cursor.execute("DELETE FROM Country WHERE Country.Name = ?", [country])
+cursor.execute("UPDATE Country SET Country_Key = Country_Key - 1 WHERE Country_Key >= ?", [max_country_key])
+db.commit()
+max_country_key -= 1
+
+#delete city
+capital = 'Washington D.C.'
+cursor.execute("DELETE FROM Capital_City WHERE Capital_City.Name = ?", [capital])
+cursor.execute("UPDATE Capital_City SET City_Key = City_Key - 1 WHERE City_Key >= ?", [max_city_key])
+db.commit()
+max_city_key -= 1
+
 #Delete data relating to a city - copy paste this segment and change some names to make work with other tables
 selected_city = 'Ouagadougou'
 cursor.execute("SELECT Capital_City.City_Key FROM Capital_City WHERE Capital_City.Name = ?", [selected_city])
 output = cursor.fetchone()[0]
 cursor.execute("DELETE FROM Current_AQ_Info WHERE Current_AQ_Info.City_Key = ?", [output])
+cursor.execute("UPDATE Current_AQ_Info SET AQ_Key = AQ_Key - 1 WHERE AQ_Key >= ?", [max_aq_key])
 max_aq_key -= 1
 db.commit()
 
@@ -604,11 +654,15 @@ output = cursor.fetchall()
 #for row in output:
     #print(row)
 
-#print average air quality and the average status
-cursor.execute("""SELECT Status.Description, AVG(Current_AQ_Info.AQI_Value) 
+#print average air quality and the average status of each continent
+cursor.execute("""SELECT Continent.Name, Status.Description, AVG(Current_AQ_Info.AQI_Value) 
                     FROM Current_AQ_Info, Status
+                    INNER JOIN Capital_City ON Current_AQ_Info.City_Key = Capital_City.City_Key
+                    INNER JOIN Country ON Capital_City.Country_Key = Country.Country_Key
+                    INNER JOIN Continent ON Country.Cont_Key = Continent.Cont_Key
                     WHERE Current_AQ_Info.AQI_Value >= Status.Threshold_Lower
-                    AND Current_AQ_Info.AQI_Value <= Status.Threshold_Upper""")
+                    AND Current_AQ_Info.AQI_Value <= Status.Threshold_Upper
+                    GROUP BY Continent.Name""")
 output = cursor.fetchall()
 #for row in output:
     #print(row)
