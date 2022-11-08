@@ -450,7 +450,27 @@ History = (21, '2022-07-21', 118, 21)
 cursor.execute("INSERT INTO History VALUES(?,?,?,?)", History)
 db.commit()
 
-#statement count: 5
+#statement count: 8
+
+#count amount of history entries and user entries
+cursor.execute("SELECT COUNT(History.History_Key) FROM History UNION SELECT COUNT(Users.User_Key) FROM Users")
+max_user_key = cursor.fetchone()[0]
+max_hist_key = cursor.fetchone()[0]
+
+#count the amount of countries and their capital cities (city count = country count since country can only have 1 capital)
+cursor.execute("SELECT COUNT(Capital_City.City_Key) FROM Capital_City")
+max_country_key = max_city_key = cursor.fetchone()[0]
+
+#get userkey
+name = ('Mei', 'Raiden')
+cursor.execute("SELECT Users.User_Key FROM Users WHERE Users.First_Name = ? AND Users.Last_Name = ?", name)
+user_key = cursor.fetchone()[0]
+
+#add new user
+max_user_key += 1
+new_user = (max_user_key, 'Florin', 'Rusu')
+cursor.execute("INSERT INTO Users VALUES(?,?,?)", new_user)
+db.commit()
 
 #Delete data relating to a city
 selected_city = 'Ouagadougou'
@@ -459,8 +479,20 @@ output = cursor.fetchone()[0]
 cursor.execute("DELETE FROM Current_AQ_Info WHERE Current_AQ_Info.City_Key = ?", [output])
 
 #Update file - date = new_date where date = old_date
-dates = ('2022-07-22', '2022-07-21')
+new_date = '2022-07-22'
+old_date = '2022-07-21'
+dates = (new_date, old_date)
 cursor.execute("UPDATE Current_AQ_Info SET Date = ? WHERE Date = ?", dates)
+
+#update aqi value of a city - records user who did - put in for loop later
+city_key = 1
+new_AQI_value = 69
+updated_values = (new_AQI_value, user_key, city_key)
+cursor.execute("UPDATE Current_AQ_Info SET AQI_Value = ?, User_Key = ? WHERE City_Key = ?", updated_values)
+#update history with new entry
+max_hist_key += 1
+new_history = (max_hist_key, new_date, new_AQI_value, city_key)
+cursor.execute("INSERT INTO History VALUES(?,?,?,?)", new_history)
 db.commit()
 
 #Select statment get data from Current_AQ_Info
