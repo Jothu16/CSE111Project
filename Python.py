@@ -82,12 +82,14 @@ cursor.execute("""CREATE TABLE Status(
 
 cursor.execute("""CREATE TABLE UserEdits(
      User_Key INTEGER,
-     AQ_Key INTEGER
+     AQ_Key INTEGER,
+     City_Key INTEGER
      )""")
 
 cursor.execute("""CREATE TABLE HistoryStatus(
      Status_Key INTEGER,
-     History_Key INTEGER
+     History_Key INTEGER,
+     City_Key INTEGER
      )""")
 
 #Populate Status Table
@@ -546,7 +548,20 @@ Hist_Stat = (21, 3)
 cursor.execute("INSERT INTO HistoryStatus VALUES(?,?)", Hist_Stat)
 db.commit()
 
-#statement count: 20
+
+#Check implementation in assignments for many to many
+#Need Intermediate table (such as partsupp)
+#Table where city with different statuses
+#history sohuld have primary key
+#each histroy should correspond to city and/or status key
+#Many to many will always have 2 foreign keys
+#Need to have table connecting history and status 
+
+#standalone table connecting histoy and status with history key and status key
+# city 1, history key 1, status key 1
+# city 2, history key 2, status key 1
+# city 1, history key 3, status key 2
+# ement count: 20
 
 #count amount of history entries and user entries
 cursor.execute("""SELECT COUNT(History.History_Key) FROM History 
@@ -565,7 +580,7 @@ max_country_key = max_city_key = max_aq_key = cursor.fetchone()[0]
 name = ('Bronya', 'Zaychik')
 cursor.execute("SELECT Users.User_Key FROM Users WHERE Users.First_Name = ? AND Users.Last_Name = ?", name)
 user_key = cursor.fetchone()[0]
-#print(user_key)
+print(user_key)
 
 #add new user - copy paste this and change variables to make work with other tables
 max_user_key += 1
@@ -643,6 +658,7 @@ db.commit()
 selected_city = 'Tirana'
 cursor.execute("SELECT Capital_City.City_Key FROM Capital_City WHERE Capital_City.Name = ?", [selected_city])
 city_key = cursor.fetchone()[0]
+print(city_key)
 new_AQI_value = 69
 updated_values = (new_AQI_value, user_key, city_key)
 cursor.execute("UPDATE Current_AQ_Info SET AQI_Value = ?, User_Key = ? WHERE City_Key = ?", updated_values)
