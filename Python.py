@@ -81,14 +81,14 @@ cursor.execute("""CREATE TABLE Status(
      )""")
 
 cursor.execute("""CREATE TABLE UserEdits(
-     User_Key INTEGER,
      AQ_Key INTEGER,
+     User_Key INTEGER,
      City_Key INTEGER
      )""")
 
 cursor.execute("""CREATE TABLE HistoryStatus(
-     Status_Key INTEGER,
      History_Key INTEGER,
+     Status_Key INTEGER,
      City_Key INTEGER
      )""")
 
@@ -698,14 +698,14 @@ output = cursor.fetchall()
      #print(row)
 
 #count all edits made by users today form lowest to highest
-cursor.execute("""SELECT Users.First_Name, Users.Last_Name, COUNT(Current_AQ_Info.User_Key) as cnt
-                    FROM Current_AQ_Info
-                    INNER JOIN Users ON Current_AQ_Info.User_Key = Users.User_Key
+cursor.execute("""SELECT Users.First_Name, Users.Last_Name, COUNT(UserEdits.User_Key) as cnt
+                    FROM Users
+                    INNER JOIN UserEdits ON UserEdits.User_Key = Users.User_Key
                     GROUP BY Users.First_Name, Users.Last_Name
                     ORDER BY cnt""")
 output = cursor.fetchall()
-#for row in output:
-    #print(row)
+for row in output:
+    print(row)
 
 #print lowest and highest country's AQI Value
 cursor.execute("""SELECT best_con.Name, MIN(best_aq.AQI_Value)
