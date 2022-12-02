@@ -1,4 +1,5 @@
 import sqlite3
+import math
 
 db = sqlite3.connect("newdb.db")
 cursor = db.cursor()
@@ -10,6 +11,8 @@ cursor.execute("DROP TABLE Country")
 cursor.execute("DROP TABLE Capital_City")
 cursor.execute("DROP TABLE History")
 cursor.execute("DROP TABLE Status")
+cursor.execute("DROP TABLE UserEdits")
+cursor.execute("DROP TABLE HistoryStatus")
 db.commit()
 
 #cursor.execute("""CREATE TABLE Current_AQ_Info(
@@ -75,6 +78,16 @@ cursor.execute("""CREATE TABLE Status(
      Description TEXT,
      Threshold_Lower INTEGER,
      Threshold_Upper INTEGER
+     )""")
+
+cursor.execute("""CREATE TABLE UserEdits(
+     User_Key INTEGER,
+     AQ_Key INTEGER
+     )""")
+
+cursor.execute("""CREATE TABLE HistoryStatus(
+     Status_Key INTEGER,
+     History_Key INTEGER
      )""")
 
 #Populate Status Table
@@ -322,132 +335,215 @@ Capital_City = (21, 2, 21,'Ouagadougou')
 cursor.execute("INSERT INTO Capital_City VALUES(?,?,?,?)", Capital_City)
 db.commit()
 
-
 # Add Current_AQ_Info and History to the table and commit these changes to the database
 Current_AQ_Info = (1, '2022-07-21', 14, 1, 1)
 cursor.execute("INSERT INTO Current_AQ_Info VALUES(?,?,?,?,?)", Current_AQ_Info)
+User_AQ = (1, 1)
+cursor.execute("INSERT INTO UserEdits VALUES(?,?)", User_AQ)
 History = (1, '2022-07-21', 14, 1)
 cursor.execute("INSERT INTO History VALUES(?,?,?,?)", History)
+Hist_Stat = (1, 1)
+cursor.execute("INSERT INTO HistoryStatus VALUES(?,?)", Hist_Stat)
 db.commit()
 
 Current_AQ_Info = (2, '2022-07-21', 65, 2, 2)
 cursor.execute("INSERT INTO Current_AQ_Info VALUES(?,?,?,?,?)", Current_AQ_Info)
+User_AQ = (2, 2)
+cursor.execute("INSERT INTO UserEdits VALUES(?,?)", User_AQ)
 History = (2, '2022-07-21', 65, 2)
 cursor.execute("INSERT INTO History VALUES(?,?,?,?)", History)
+Hist_Stat = (2, 2)
+cursor.execute("INSERT INTO HistoryStatus VALUES(?,?)", Hist_Stat)
 db.commit()
 
 Current_AQ_Info = (3, '2022-07-21', 55, 3, 3)
 cursor.execute("INSERT INTO Current_AQ_Info VALUES(?,?,?,?,?)", Current_AQ_Info)
+User_AQ = (3, 3)
+cursor.execute("INSERT INTO UserEdits VALUES(?,?)", User_AQ)
 History = (3, '2022-07-21', 55, 3)
 cursor.execute("INSERT INTO History VALUES(?,?,?,?)", History)
+Hist_Stat = (3, 2)
+cursor.execute("INSERT INTO HistoryStatus VALUES(?,?)", Hist_Stat)
 db.commit()
 
 Current_AQ_Info = (4, '2022-07-21', 113, 4, 1)
 cursor.execute("INSERT INTO Current_AQ_Info VALUES(?,?,?,?,?)", Current_AQ_Info)
+User_AQ = (4, 1)
+cursor.execute("INSERT INTO UserEdits VALUES(?,?)", User_AQ)
 History = (4, '2022-07-21', 113, 4)
 cursor.execute("INSERT INTO History VALUES(?,?,?,?)", History)
+Hist_Stat = (4, 3)
+cursor.execute("INSERT INTO HistoryStatus VALUES(?,?)", Hist_Stat)
 db.commit()
 
 Current_AQ_Info = (5, '2022-07-21', 63, 5, 2)
 cursor.execute("INSERT INTO Current_AQ_Info VALUES(?,?,?,?,?)", Current_AQ_Info)
+User_AQ = (5, 2)
+cursor.execute("INSERT INTO UserEdits VALUES(?,?)", User_AQ)
 History = (5, '2022-07-21', 63, 5)
 cursor.execute("INSERT INTO History VALUES(?,?,?,?)", History)
+Hist_Stat = (5, 2)
+cursor.execute("INSERT INTO HistoryStatus VALUES(?,?)", Hist_Stat)
 db.commit()
 
 Current_AQ_Info = (6, '2022-07-21', 76, 6, 3)
 cursor.execute("INSERT INTO Current_AQ_Info VALUES(?,?,?,?,?)", Current_AQ_Info)
+User_AQ = (6, 3)
+cursor.execute("INSERT INTO UserEdits VALUES(?,?)", User_AQ)
 History = (6, '2022-07-21', 76, 6)
 cursor.execute("INSERT INTO History VALUES(?,?,?,?)", History)
+Hist_Stat = (6, 2)
+cursor.execute("INSERT INTO HistoryStatus VALUES(?,?)", Hist_Stat)
 db.commit()
 
 Current_AQ_Info = (7, '2022-07-21', 56, 7, 1)
 cursor.execute("INSERT INTO Current_AQ_Info VALUES(?,?,?,?,?)", Current_AQ_Info)
+User_AQ = (7, 1)
+cursor.execute("INSERT INTO UserEdits VALUES(?,?)", User_AQ)
 History = (7, '2022-07-21', 56, 7)
 cursor.execute("INSERT INTO History VALUES(?,?,?,?)", History)
+Hist_Stat = (7, 2)
+cursor.execute("INSERT INTO HistoryStatus VALUES(?,?)", Hist_Stat)
 db.commit()
 
 Current_AQ_Info = (8, '2022-07-21', 45, 8, 2)
 cursor.execute("INSERT INTO Current_AQ_Info VALUES(?,?,?,?,?)", Current_AQ_Info)
+User_AQ = (8, 2)
+cursor.execute("INSERT INTO UserEdits VALUES(?,?)", User_AQ)
 History = (8, '2022-07-21', 45, 8)
 cursor.execute("INSERT INTO History VALUES(?,?,?,?)", History)
+Hist_Stat = (8, 1)
+cursor.execute("INSERT INTO HistoryStatus VALUES(?,?)", Hist_Stat)
 db.commit()
 
 Current_AQ_Info = (9, '2022-07-21', 12, 9, 3)
 cursor.execute("INSERT INTO Current_AQ_Info VALUES(?,?,?,?,?)", Current_AQ_Info)
+User_AQ = (9, 3)
+cursor.execute("INSERT INTO UserEdits VALUES(?,?)", User_AQ)
 History = (9, '2022-07-21', 12, 9)
 cursor.execute("INSERT INTO History VALUES(?,?,?,?)", History)
+Hist_Stat = (9, 1)
+cursor.execute("INSERT INTO HistoryStatus VALUES(?,?)", Hist_Stat)
 db.commit()
 
 Current_AQ_Info = (10, '2022-07-21', 165, 10, 1)
 cursor.execute("INSERT INTO Current_AQ_Info VALUES(?,?,?,?,?)", Current_AQ_Info)
+User_AQ = (10, 1)
+cursor.execute("INSERT INTO UserEdits VALUES(?,?)", User_AQ)
 History = (10, '2022-07-21', 165, 10)
 cursor.execute("INSERT INTO History VALUES(?,?,?,?)", History)
+Hist_Stat = (10, 4)
+cursor.execute("INSERT INTO HistoryStatus VALUES(?,?)", Hist_Stat)
 db.commit()
 
 Current_AQ_Info = (11, '2022-07-21', 141, 11, 2)
 cursor.execute("INSERT INTO Current_AQ_Info VALUES(?,?,?,?,?)", Current_AQ_Info)
+User_AQ = (11, 2)
+cursor.execute("INSERT INTO UserEdits VALUES(?,?)", User_AQ)
 History = (11, '2022-07-21', 141, 11)
 cursor.execute("INSERT INTO History VALUES(?,?,?,?)", History)
+Hist_Stat = (11, 3)
+cursor.execute("INSERT INTO HistoryStatus VALUES(?,?)", Hist_Stat)
 db.commit()
 
 Current_AQ_Info = (12, '2022-07-21', 13, 12, 3)
 cursor.execute("INSERT INTO Current_AQ_Info VALUES(?,?,?,?,?)", Current_AQ_Info)
+User_AQ = (12, 3)
+cursor.execute("INSERT INTO UserEdits VALUES(?,?)", User_AQ)
 History = (12, '2022-07-21', 13, 12)
 cursor.execute("INSERT INTO History VALUES(?,?,?,?)", History)
+Hist_Stat = (12, 1)
+cursor.execute("INSERT INTO HistoryStatus VALUES(?,?)", Hist_Stat)
 db.commit()
 
 Current_AQ_Info = (13, '2022-07-21', 61, 13, 1)
 cursor.execute("INSERT INTO Current_AQ_Info VALUES(?,?,?,?,?)", Current_AQ_Info)
+User_AQ = (13, 1)
+cursor.execute("INSERT INTO UserEdits VALUES(?,?)", User_AQ)
 History = (13, '2022-07-21', 61, 13)
 cursor.execute("INSERT INTO History VALUES(?,?,?,?)", History)
+Hist_Stat = (13, 2)
+cursor.execute("INSERT INTO HistoryStatus VALUES(?,?)", Hist_Stat)
 db.commit()
 
 Current_AQ_Info = (14, '2022-07-21', 28, 14, 2)
 cursor.execute("INSERT INTO Current_AQ_Info VALUES(?,?,?,?,?)", Current_AQ_Info)
+User_AQ = (14, 2)
+cursor.execute("INSERT INTO UserEdits VALUES(?,?)", User_AQ)
 History = (14, '2022-07-21', 28, 14)
 cursor.execute("INSERT INTO History VALUES(?,?,?,?)", History)
+Hist_Stat = (14, 1)
+cursor.execute("INSERT INTO HistoryStatus VALUES(?,?)", Hist_Stat)
 db.commit()
 
 Current_AQ_Info = (15, '2022-07-21', 12, 15, 3)
 cursor.execute("INSERT INTO Current_AQ_Info VALUES(?,?,?,?,?)", Current_AQ_Info)
+User_AQ = (15, 3)
+cursor.execute("INSERT INTO UserEdits VALUES(?,?)", User_AQ)
 History = (15, '2022-07-21', 12, 15)
 cursor.execute("INSERT INTO History VALUES(?,?,?,?)", History)
+Hist_Stat = (15, 1)
+cursor.execute("INSERT INTO HistoryStatus VALUES(?,?)", Hist_Stat)
 db.commit()
 
 Current_AQ_Info = (16, '2022-07-21', 9, 16, 1)
 cursor.execute("INSERT INTO Current_AQ_Info VALUES(?,?,?,?,?)", Current_AQ_Info)
+User_AQ = (16, 1)
+cursor.execute("INSERT INTO UserEdits VALUES(?,?)", User_AQ)
 History = (16, '2022-07-21', 9, 16)
 cursor.execute("INSERT INTO History VALUES(?,?,?,?)", History)
+Hist_Stat = (16, 1)
+cursor.execute("INSERT INTO HistoryStatus VALUES(?,?)", Hist_Stat)
 db.commit()
 
 Current_AQ_Info = (17, '2022-07-21', 58, 17, 2)
 cursor.execute("INSERT INTO Current_AQ_Info VALUES(?,?,?,?,?)", Current_AQ_Info)
+User_AQ = (17, 2)
+cursor.execute("INSERT INTO UserEdits VALUES(?,?)", User_AQ)
 History = (17, '2022-07-21', 58, 17)
 cursor.execute("INSERT INTO History VALUES(?,?,?,?)", History)
+Hist_Stat = (17, 2)
+cursor.execute("INSERT INTO HistoryStatus VALUES(?,?)", Hist_Stat)
 db.commit()
 
 Current_AQ_Info = (18, '2022-07-21', 67, 18, 3)
 cursor.execute("INSERT  INTO Current_AQ_Info VALUES(?,?,?,?,?)", Current_AQ_Info)
+User_AQ = (18, 3)
+cursor.execute("INSERT INTO UserEdits VALUES(?,?)", User_AQ)
 History = (18, '2022-07-21', 67, 18)
 cursor.execute("INSERT  INTO History VALUES(?,?,?,?)", History)
+Hist_Stat = (18, 2)
+cursor.execute("INSERT INTO HistoryStatus VALUES(?,?)", Hist_Stat)
 db.commit()
 
 Current_AQ_Info = (19, '2022-07-21', 15, 19, 4)
 cursor.execute("INSERT INTO Current_AQ_Info VALUES(?,?,?,?,?)", Current_AQ_Info)
+User_AQ = (19, 4)
+cursor.execute("INSERT INTO UserEdits VALUES(?,?)", User_AQ)
 History = (19, '2022-07-21', 15, 19)
 cursor.execute("INSERT INTO History VALUES(?,?,?,?)", History)
+Hist_Stat = (19, 1)
+cursor.execute("INSERT INTO HistoryStatus VALUES(?,?)", Hist_Stat)
 db.commit()
 
 Current_AQ_Info = (20, '2022-07-21', 28, 20, 5)
 cursor.execute("INSERT INTO Current_AQ_Info VALUES(?,?,?,?,?)", Current_AQ_Info)
+User_AQ = (20, 5)
+cursor.execute("INSERT INTO UserEdits VALUES(?,?)", User_AQ)
 History = (20, '2022-07-21', 28, 20)
 cursor.execute("INSERT INTO History VALUES(?,?,?,?)", History)
+Hist_Stat = (20, 1)
+cursor.execute("INSERT INTO HistoryStatus VALUES(?,?)", Hist_Stat)
 db.commit()
 
 Current_AQ_Info = (21, '2022-07-21', 118, 21, 6)
 cursor.execute("INSERT INTO Current_AQ_Info VALUES(?,?,?,?,?)", Current_AQ_Info)
+User_AQ = (21, 6)
+cursor.execute("INSERT INTO UserEdits VALUES(?,?)", User_AQ)
 History = (21, '2022-07-21', 118, 21)
 cursor.execute("INSERT INTO History VALUES(?,?,?,?)", History)
+Hist_Stat = (21, 3)
+cursor.execute("INSERT INTO HistoryStatus VALUES(?,?)", Hist_Stat)
 db.commit()
 
 #statement count: 20
@@ -533,6 +629,7 @@ output = cursor.fetchone()[0]
 cursor.execute("DELETE FROM Current_AQ_Info WHERE Current_AQ_Info.City_Key = ?", [output])
 cursor.execute("UPDATE Current_AQ_Info SET AQ_Key = AQ_Key - 1 WHERE AQ_Key >= ?", [max_aq_key])
 max_aq_key -= 1
+#add compatibility with UserEdits
 db.commit()
 
 #Update file - date = new_date where date = old_date
@@ -549,11 +646,15 @@ city_key = cursor.fetchone()[0]
 new_AQI_value = 69
 updated_values = (new_AQI_value, user_key, city_key)
 cursor.execute("UPDATE Current_AQ_Info SET AQI_Value = ?, User_Key = ? WHERE City_Key = ?", updated_values)
+User_AQ = (city_key, user_key)
+cursor.execute("INSERT INTO UserEdits VALUES(?,?)", User_AQ)
 db.commit()
 #update history with new entry
 max_hist_key += 1
 new_history = (max_hist_key, new_date, new_AQI_value, city_key)
 cursor.execute("INSERT INTO History VALUES(?,?,?,?)", new_history)
+Hist_Stat = (max_hist_key, math.ceil(new_AQI_value / 50))
+cursor.execute("INSERT INTO HistoryStatus VALUES(?,?)", Hist_Stat)
 db.commit()
 
 #add new entry to current aq database
@@ -563,10 +664,14 @@ AQI_value = 120
 date = '2022-07-22'
 new_entry = (max_aq_key, date, AQI_value, city_key, user_key)
 cursor.execute("INSERT INTO Current_AQ_Info VALUES (?,?,?,?,?)", new_entry)
+User_AQ = (max_aq_key, user_key)
+cursor.execute("INSERT INTO UserEdits VALUES(?,?)", User_AQ)
 db.commit()
 max_hist_key += 1
 new_history = (max_hist_key, date, AQI_value, city_key)
 cursor.execute("INSERT INTO History VALUES(?,?,?,?)", new_history)
+Hist_Stat = (max_hist_key, math.ceil(AQI_value / 50))
+cursor.execute("INSERT INTO HistoryStatus VALUES(?,?)", Hist_Stat)
 db.commit()
 
 #Select statment get data from Current_AQ_Info
