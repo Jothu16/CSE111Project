@@ -704,8 +704,8 @@ cursor.execute("""SELECT Users.First_Name, Users.Last_Name, COUNT(UserEdits.User
                     GROUP BY Users.First_Name, Users.Last_Name
                     ORDER BY cnt""")
 output = cursor.fetchall()
-for row in output:
-    print(row)
+#for row in output:
+    #print(row)
 
 #print lowest and highest country's AQI Value
 cursor.execute("""SELECT best_con.Name, MIN(best_aq.AQI_Value)
@@ -793,10 +793,10 @@ output = cursor.fetchall()
 #count the amount of times each city had a certain status
 selected_city = 'Tirana'
 cursor.execute("""SELECT Capital_City.Name, Status.Description, COUNT(Status.Description)
-                    FROM History, Status
+                    FROM History, HistoryStatus, Status
                     INNER JOIN Capital_City ON History.City_Key = Capital_City.City_Key
-                    WHERE History.AQI_Value >= Status.Threshold_Lower
-                    AND History.AQI_Value <= Status.Threshold_Upper
+                    WHERE History.History_Key = HistoryStatus.History_Key
+                    AND Status.Status_Key = HistoryStatus.Status_Key
                     GROUP BY Capital_City.Name, Status.Description
                     ORDER BY Capital_City.Name, Status.Threshold_Lower""")
 output = cursor.fetchall()
@@ -804,15 +804,15 @@ output = cursor.fetchall()
     #print(row)
 
 #find cities that had both "Good" and "Moderate" Statuses in its history - change variables if needed
-cursor.execute("""SELECT DISTINCT Capital_City.Name FROM History, Status
+cursor.execute("""SELECT DISTINCT Capital_City.Name FROM History, HistoryStatus
                     INNER JOIN Capital_City ON History.City_Key = Capital_City.City_Key
-                    WHERE History.AQI_Value >= 0
-                    AND History.AQI_Value <= 50
+                    WHERE HistoryStatus.Status_Key = 1
+                    AND History.History_Key = HistoryStatus.History_Key
                   INTERSECT
-                  SELECT DISTINCT Capital_City.Name FROM History, Status
+                  SELECT DISTINCT Capital_City.Name FROM History, HistoryStatus
                     INNER JOIN Capital_City ON History.City_Key = Capital_City.City_Key
-                    WHERE History.AQI_Value >= 51
-                    AND History.AQI_Value <= 100""")
+                    WHERE HistoryStatus.Status_Key = 2
+                    AND History.History_Key = HistoryStatus.History_Key""")
 output = cursor.fetchall()
 #for row in output:
     #print(row)
@@ -830,16 +830,16 @@ output = cursor.fetchall()
 
 #print all cities that had changes in statuses and order by date
 cursor.execute("""SELECT History.Date, Capital_City.Name, Status.Description
-                    FROM History, Status, Capital_City, (SELECT Capital_City.Name as cities
-                                             FROM History, Status
+                    FROM History, HistoryStatus, Status, Capital_City, (SELECT Capital_City.Name as cities
+                                             FROM History, Status, HistoryStatus
                                              INNER JOIN Capital_City ON History.City_Key = Capital_City.City_Key
-                                             WHERE History.AQI_Value >= Status.Threshold_Lower
-                                             AND History.AQI_Value <= Status.Threshold_Upper
+                                             WHERE History.History_Key = HistoryStatus.History_Key
+                                             AND Status.Status_Key = HistoryStatus.Status_Key
                                              GROUP BY Capital_City.Name
                                              HAVING COUNT(DISTINCT Status.Description) > 1
                                              ORDER BY Capital_City.Name, Status.Threshold_Lower) AS cities_with_change
-                    WHERE History.AQI_Value >= Status.Threshold_Lower
-                    AND History.AQI_Value <= Status.Threshold_Upper
+                    WHERE History.History_Key = HistoryStatus.History_Key
+                    AND HistoryStatus.Status_Key = Status.Status_Key
                     AND History.City_Key = Capital_City.City_Key
                     AND Capital_City.Name = cities_with_change.cities""")
 output = cursor.fetchall()
