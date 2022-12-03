@@ -96,42 +96,62 @@ var_dump($rows);
 <br>
 <br>
 <button onclick="myFunction()">add new user - copy paste this and change variables to make work with other tables</button>
+<input type="text">
+
 
 <br>
 <br>
 <button onclick="myFunction()">delete user</button>
+<input type="text">
+
 
 <br>
 <br>
 <button onclick="myFunction()">add new country</button>
+<input type="text">
+
 
 <br>
 <br>
 <button onclick="myFunction()">add new city</button>
+<input type="text">
+
 
 <br>
 <br>
 <button onclick="myFunction()">delete country</button>
+<input type="text">
+
 
 <br>
 <br>
 <button onclick="myFunction()">delete city</button>
+<input type="text">
+
 
 <br>
 <br>
 <button onclick="myFunction()">Delete data relating to a city - copy paste this segment and change some names to make work with other tables</button>
+<input type="text">
+
 
 <br>
 <br>
 <button onclick="myFunction()">Update file - date = new_date where date = old_date</button>
+<input type="text">
+
 
 <br>
 <br>
 <button onclick="myFunction()">update aqi value of a city - records user who did - check valid data later</button>
+<input type="text">
+
 
 <br>
 <br>
 <button onclick="myFunction()">update history with new entry</button>
+<input type="text">
+
 
 <br>
 <br>
@@ -195,7 +215,7 @@ var_dump($rows);
 
 <br>
 <br>
-<button onclick="myFunction()"># select all countries status</button>
+<button onclick="myFunction()">select all countries status</button>
 
 </body>
 </html>
