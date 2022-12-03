@@ -156,6 +156,7 @@ var_dump($rows);
 <br>
 <br>
 <button onclick="myFunction()">add new entry to current aq database</button>
+<input type="text">
 
 <br>
 <br>
