@@ -196,10 +196,6 @@ var_dump($rows);
 
 <br>
 <br>
-<button onclick="myFunction()">Print the history of a city</button>
-
-<br>
-<br>
 <button onclick="myFunction()">count the amount of times each city had a certain status</button>
 
 <br>
