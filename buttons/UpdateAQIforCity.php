@@ -21,7 +21,7 @@ function updateAQIforcity()
 </script>
 
 <?php
-    function count_countries_and_capitals() {
+    function updateAQIforcity() {
         $db = new SQLite3('../newdb.sqlite');
 
         $sql = "";
@@ -48,6 +48,6 @@ function updateAQIforcity()
 
         $db->close();
     }
-count_countries_and_capitals();
+    updateAQIforcity();
 
 ?>

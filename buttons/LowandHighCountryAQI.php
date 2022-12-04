@@ -1,9 +1,9 @@
 <br>
 <br>
-<button onclick="myFunction()">print lowest and highest country's AQI Value</button>
+<button onclick="Low_and_High_CountryAQI()">print lowest and highest country's AQI Value</button>
 
 <?php
-    function count_countries_and_capitals() {
+    function Low_and_High_CountryAQI() {
         $db = new SQLite3('../newdb.sqlite');
 
         $sql = "";
@@ -30,6 +30,6 @@
 
         $db->close();
     }
-count_countries_and_capitals();
+    Low_and_High_CountryAQI();
 
 ?>

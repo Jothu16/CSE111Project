@@ -1,9 +1,9 @@
 <br>
 <br>
-<button onclick="countamountofcountriesandcapitals()">count the amount of countries and their capital cities and their entries(city count = country count since country can only have 1 capital)</button>
+<button onclick="count_amount_countries_and_capitals()">count the amount of countries and their capital cities and their entries(city count = country count since country can only have 1 capital)</button>
 
 <script>
-function countamountofcountriesandcapitals() 
+function count_amount_countries_and_capitals() 
 {
     var inputId = document.getElementById("HospitalId").value; //we get the user input value and put it in a var
 
@@ -20,7 +20,7 @@ function countamountofcountriesandcapitals()
 </script>
 
 <?php
-    function count_countries_and_capitals() {
+    function count_amount_countries_and_capitals() {
         $db = new SQLite3('../newdb.sqlite');
 
         $sql = "";
@@ -47,6 +47,6 @@ function countamountofcountriesandcapitals()
 
         $db->close();
     }
-count_countries_and_capitals();
+    count_amount_countries_and_capitals();
 
 ?>

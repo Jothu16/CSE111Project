@@ -1,9 +1,9 @@
 <br>
 <br>
-<button onclick="myFunction()">print average air quality and the average status of each continent</button>
+<button onclick="AverageAQ_andAverageStatus_Continent()">print average air quality and the average status of each continent</button>
 
 <?php
-    function count_countries_and_capitals() {
+    function AverageAQ_andAverageStatus_Continent() {
         $db = new SQLite3('../newdb.sqlite');
 
         $sql = "";
@@ -30,6 +30,6 @@
 
         $db->close();
     }
-count_countries_and_capitals();
+    AverageAQ_andAverageStatus_Continent();
 
 ?>

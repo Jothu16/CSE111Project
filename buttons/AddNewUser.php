@@ -21,7 +21,7 @@ function addnewuser()
 </script>
 
 <?php
-    function count_countries_and_capitals() {
+    function addnewuser() {
         $db = new SQLite3('../newdb.sqlite');
 
         $sql = "";
@@ -48,6 +48,6 @@ function addnewuser()
 
         $db->close();
     }
-count_countries_and_capitals();
+    addnewuser();
 
 ?>

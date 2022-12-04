@@ -1,9 +1,9 @@
 br>
 <br>
-<button onclick="myFunction()">Count the amount of entries for each status description</button>
+<button onclick="EntriesForEachStatus()">Count the amount of entries for each status description</button>
 
 <?php
-    function count_countries_and_capitals() {
+    function EntriesForEachStatus() {
         $db = new SQLite3('../newdb.sqlite');
 
         $sql = "";
@@ -30,6 +30,6 @@ br>
 
         $db->close();
     }
-count_countries_and_capitals();
+    EntriesForEachStatus();
 
 ?>

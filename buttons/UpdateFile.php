@@ -21,7 +21,7 @@ function updatefile()
 </script>
 
 <?php
-    function count_countries_and_capitals() {
+    function updatefile() {
         $db = new SQLite3('../newdb.sqlite');
 
         $sql = "";
@@ -48,6 +48,6 @@ function updatefile()
 
         $db->close();
     }
-count_countries_and_capitals();
+    updatefile();
 
 ?>

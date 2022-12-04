@@ -1,9 +1,9 @@
 <br>
 <br>
-<button onclick="myFunction()">find cities that had both "Good" and "Moderate" Statuses in its history - change variables if needed</button>
+<button onclick="Cities_GoodModerate_Status_History()">find cities that had both "Good" and "Moderate" Statuses in its history - change variables if needed</button>
 
 <?php
-    function count_countries_and_capitals() {
+    function Cities_GoodModerate_Status_History() {
         $db = new SQLite3('../newdb.sqlite');
 
         $sql = "";
@@ -30,6 +30,6 @@
 
         $db->close();
     }
-count_countries_and_capitals();
+    Cities_GoodModerate_Status_History();
 
 ?>

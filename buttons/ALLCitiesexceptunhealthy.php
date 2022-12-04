@@ -1,9 +1,9 @@
 <br>
 <br>
-<button onclick="myFunction()">find all cities except for unhealthy or worse cities</button>
+<button onclick="ALL_Cities_Except_Unhealthy()">find all cities except for unhealthy or worse cities</button>
 
 <?php
-    function count_countries_and_capitals() {
+    function ALL_Cities_Except_Unhealthy() {
         $db = new SQLite3('../newdb.sqlite');
 
         $sql = "";
@@ -30,6 +30,6 @@
 
         $db->close();
     }
-count_countries_and_capitals();
+    ALL_Cities_Except_Unhealthy();
 
 ?>

@@ -1,9 +1,9 @@
 <br>
 <br>
-<button onclick="myFunction()">count all edits made by users today form lowest to highest</button>
+<button onclick="ALL_Edits_Made_by_User_LowTOHigh()">count all edits made by users today form lowest to highest</button>
 
 <?php
-    function count_countries_and_capitals() {
+    function ALL_Edits_Made_by_User_LowTOHigh() {
         $db = new SQLite3('../newdb.sqlite');
 
         $sql = "";
@@ -30,6 +30,6 @@
 
         $db->close();
     }
-count_countries_and_capitals();
+    ALL_Edits_Made_by_User_LowTOHigh();
 
 ?>

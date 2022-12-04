@@ -1,9 +1,9 @@
 <br>
 <br>
-<button onclick="myFunction()">print all continents with a country with "good" status and how many</button>
+<button onclick="Continents_withCountry_Good_HowMany()">print all continents with a country with "good" status and how many</button>
 
 <?php
-    function count_countries_and_capitals() {
+    function Continents_withCountry_Good_HowMany() {
         $db = new SQLite3('../newdb.sqlite');
 
         $sql = "";
@@ -30,6 +30,6 @@
 
         $db->close();
     }
-count_countries_and_capitals();
+    Continents_withCountry_Good_HowMany();
 
 ?>

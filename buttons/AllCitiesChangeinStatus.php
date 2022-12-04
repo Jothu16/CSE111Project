@@ -1,9 +1,9 @@
 <br>
 <br>
-<button onclick="myFunction()">print all cities that had changes in statuses and order by date</button>
+<button onclick="ALL_Cities_Change_in_Status()">print all cities that had changes in statuses and order by date</button>
 
 <?php
-    function count_countries_and_capitals() {
+    function ALL_Cities_Change_in_Status() {
         $db = new SQLite3('../newdb.sqlite');
 
         $sql = "";
@@ -30,6 +30,6 @@
 
         $db->close();
     }
-count_countries_and_capitals();
+    ALL_Cities_Change_in_Status();
 
 ?>

@@ -1,9 +1,9 @@
 <br>
 <br>
-<button onclick="myFunction()">print all countries with a "good" status</button>
+<button onclick="Countries_Good_Status()">print all countries with a "good" status</button>
 
 <?php
-    function count_countries_and_capitals() {
+    function Countries_Good_Status() {
         $db = new SQLite3('../newdb.sqlite');
 
         $sql = "";
@@ -30,6 +30,6 @@
 
         $db->close();
     }
-count_countries_and_capitals();
+    Countries_Good_Status();
 
 ?>

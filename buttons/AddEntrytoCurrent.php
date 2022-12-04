@@ -21,7 +21,7 @@ function newentrytoaqdatabase()
 </script>
 
 <?php
-    function count_countries_and_capitals() {
+    function newentrytoaqdatabase() {
         $db = new SQLite3('../newdb.sqlite');
 
         $sql = "";
@@ -48,6 +48,6 @@ function newentrytoaqdatabase()
 
         $db->close();
     }
-count_countries_and_capitals();
+    newentrytoaqdatabase();
 
 ?>

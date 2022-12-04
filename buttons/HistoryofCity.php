@@ -1,9 +1,9 @@
 <br>
 <br>
-<button onclick="myFunction()">Print the history of a city</button>
+<button onclick="HistoryofCity()">Print the history of a city</button>
 
 <?php
-    function count_countries_and_capitals() {
+    function HistoryofCity() {
         $db = new SQLite3('../newdb.sqlite');
 
         $sql = "";
@@ -30,6 +30,6 @@
 
         $db->close();
     }
-count_countries_and_capitals();
+    HistoryofCity();
 
 ?>

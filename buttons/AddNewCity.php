@@ -21,7 +21,7 @@ function addnewcity()
 </script>
 
 <?php
-    function count_countries_and_capitals() {
+    function addnewcity() {
         $db = new SQLite3('../newdb.sqlite');
 
         $sql = "";
@@ -48,6 +48,6 @@ function addnewcity()
 
         $db->close();
     }
-count_countries_and_capitals();
+    addnewcity();
 
 ?>

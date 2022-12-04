@@ -21,7 +21,7 @@ function deleteuser()
 </script>
 
 <?php
-    function count_countries_and_capitals() {
+    function deleteuser() {
         $db = new SQLite3('../newdb.sqlite');
 
         $sql = "";
@@ -48,6 +48,6 @@ function deleteuser()
 
         $db->close();
     }
-count_countries_and_capitals();
+    deleteuser();
 
 ?>

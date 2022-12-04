@@ -1,9 +1,9 @@
 <br>
 <br>
-<button onclick="myFunction()">Select statment get data from Current_AQ_Info</button>
+<button onclick="GetDatafromCurrent()">Select statment get data from Current_AQ_Info</button>
 
 <?php
-    function count_countries_and_capitals() {
+    function GetDatafromCurrent() {
         $db = new SQLite3('../newdb.sqlite');
 
         $sql = "";
@@ -30,6 +30,6 @@
 
         $db->close();
     }
-count_countries_and_capitals();
+    GetDatafromCurrent();
 
 ?>

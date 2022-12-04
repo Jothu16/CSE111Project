@@ -21,7 +21,7 @@ function deletecity()
 </script>
 
 <?php
-    function count_countries_and_capitals() {
+    function deletecity() {
         $db = new SQLite3('../newdb.sqlite');
 
         $sql = "";
@@ -48,6 +48,6 @@ function deletecity()
 
         $db->close();
     }
-count_countries_and_capitals();
+    deletecity();
 
 ?>

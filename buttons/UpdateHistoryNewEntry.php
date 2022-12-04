@@ -21,7 +21,7 @@ function updatehistorynewentry()
 </script>
 
 <?php
-    function count_countries_and_capitals() {
+    function updatehistorynewentry() {
         $db = new SQLite3('../newdb.sqlite');
 
         $sql = "";
@@ -48,6 +48,6 @@ function updatehistorynewentry()
 
         $db->close();
     }
-count_countries_and_capitals();
+    updatehistorynewentry();
 
 ?>
