@@ -1,14 +1,10 @@
 <html>
 <body>
 
-<br>
-<br>
-
 <form action="../buttons/CountHistoryentries.php" method="get">
    <input type="submit" name="runQ" value="Count History and Users">
 </form>
 
-<br>
 <br>
 <button onclick="countamountofcountriesandcapitals()">count the amount of countries and their capital cities and their entries(city count = country count since country can only have 1 capital)</button>
 
