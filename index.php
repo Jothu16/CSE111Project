@@ -305,7 +305,7 @@ function newentrytoaqdatabase()
 
 <br>
 <br>
-<button onclick="myFunction()">count all edits made by users today form lowest to highest</button>
+<button onclick="myFunction()">count all edits made by users from lowest to highest</button>
 
 <br>
 <br>
