@@ -104,7 +104,24 @@ function countamountofhistoryentries()
 
 <br>
 <br>
-<button onclick="myFunction()">count the amount of countries and their capital cities and their entries(city count = country count since country can only have 1 capital)</button>
+<button onclick="countamountofcountriesandcapitals()">count the amount of countries and their capital cities and their entries(city count = country count since country can only have 1 capital)</button>
+
+<script>
+function countamountofcountriesandcapitals() 
+{
+    var inputId = document.getElementById("HospitalId").value; //we get the user input value and put it in a var
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("GET", "C:\Users\kingk\Documents\GitHub\CSE111Project\count_user_history.py" + inputId, true); // we're passing the hId to the server as a parameter
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("SearchBoxPt").value = this.responseText;
+        }
+    };
+    xhttp.send(); 
+
+}
+</script>
 
 <br>
 <br>
@@ -112,68 +129,255 @@ function countamountofhistoryentries()
 
 <br>
 <br>
-<button onclick="myFunction()">add new user - copy paste this and change variables to make work with other tables</button>
+<button onclick="addnewuser()">add new user - copy paste this and change variables to make work with other tables</button>
+<input type="text">
+
+<script>
+function addnewuser() 
+{
+    var inputId = document.getElementById("HospitalId").value; //we get the user input value and put it in a var
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("GET", "C:\Users\kingk\Documents\GitHub\CSE111Project\count_user_history.py" + inputId, true); // we're passing the hId to the server as a parameter
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("SearchBoxPt").value = this.responseText;
+        }
+    };
+    xhttp.send(); 
+
+}
+</script>
+
+
+<br>
+<br>
+<button onclick="deleteuser()">delete user</button>
+<input type="text">
+
+<script>
+function deleteuser() 
+{
+    var inputId = document.getElementById("HospitalId").value; //we get the user input value and put it in a var
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("GET", "C:\Users\kingk\Documents\GitHub\CSE111Project\count_user_history.py" + inputId, true); // we're passing the hId to the server as a parameter
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("SearchBoxPt").value = this.responseText;
+        }
+    };
+    xhttp.send(); 
+
+}
+</script>
+
+
+<br>
+<br>
+<button onclick="addnewcountry()">add new country</button>
+<input type="text">
+
+<script>
+function addnewcountry() 
+{
+    var inputId = document.getElementById("HospitalId").value; //we get the user input value and put it in a var
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("GET", "C:\Users\kingk\Documents\GitHub\CSE111Project\count_user_history.py" + inputId, true); // we're passing the hId to the server as a parameter
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("SearchBoxPt").value = this.responseText;
+        }
+    };
+    xhttp.send(); 
+
+}
+</script>
+
+
+<br>
+<br>
+<button onclick="addnewcity()">add new city</button>
+<input type="text">
+
+<script>
+function addnewcity() 
+{
+    var inputId = document.getElementById("HospitalId").value; //we get the user input value and put it in a var
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("GET", "C:\Users\kingk\Documents\GitHub\CSE111Project\count_user_history.py" + inputId, true); // we're passing the hId to the server as a parameter
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("SearchBoxPt").value = this.responseText;
+        }
+    };
+    xhttp.send(); 
+
+}
+</script>
+
+
+<br>
+<br>
+<button onclick="deletecountry()">delete country</button>
+<input type="text">
+
+<script>
+function deletecountry() 
+{
+    var inputId = document.getElementById("HospitalId").value; //we get the user input value and put it in a var
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("GET", "C:\Users\kingk\Documents\GitHub\CSE111Project\count_user_history.py" + inputId, true); // we're passing the hId to the server as a parameter
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("SearchBoxPt").value = this.responseText;
+        }
+    };
+    xhttp.send(); 
+
+}
+</script>
+
+
+<br>
+<br>
+<button onclick="deletecity()">delete city</button>
+<input type="text">
+
+<script>
+function deletecity() 
+{
+    var inputId = document.getElementById("HospitalId").value; //we get the user input value and put it in a var
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("GET", "C:\Users\kingk\Documents\GitHub\CSE111Project\count_user_history.py" + inputId, true); // we're passing the hId to the server as a parameter
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("SearchBoxPt").value = this.responseText;
+        }
+    };
+    xhttp.send(); 
+
+}
+</script>
+
+
+<br>
+<br>
+<button onclick="deletecitydata()">Delete data relating to a city - copy paste this segment and change some names to make work with other tables</button>
 <input type="text">
 
 
+<script>
+function deletecitydata() 
+{
+    var inputId = document.getElementById("HospitalId").value; //we get the user input value and put it in a var
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("GET", "C:\Users\kingk\Documents\GitHub\CSE111Project\count_user_history.py" + inputId, true); // we're passing the hId to the server as a parameter
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("SearchBoxPt").value = this.responseText;
+        }
+    };
+    xhttp.send(); 
+
+}
+</script>
+
 <br>
 <br>
-<button onclick="myFunction()">delete user</button>
+<button onclick="updatefile()">Update file - date = new_date where date = old_date</button>
 <input type="text">
 
+<script>
+function updatefile() 
+{
+    var inputId = document.getElementById("HospitalId").value; //we get the user input value and put it in a var
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("GET", "C:\Users\kingk\Documents\GitHub\CSE111Project\count_user_history.py" + inputId, true); // we're passing the hId to the server as a parameter
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("SearchBoxPt").value = this.responseText;
+        }
+    };
+    xhttp.send(); 
+
+}
+</script>
+
 
 <br>
 <br>
-<button onclick="myFunction()">add new country</button>
+<button onclick="updateAQIforcity()">update aqi value of a city - records user who did - check valid data later</button>
 <input type="text">
 
+<script>
+function updateAQIforcity() 
+{
+    var inputId = document.getElementById("HospitalId").value; //we get the user input value and put it in a var
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("GET", "C:\Users\kingk\Documents\GitHub\CSE111Project\count_user_history.py" + inputId, true); // we're passing the hId to the server as a parameter
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("SearchBoxPt").value = this.responseText;
+        }
+    };
+    xhttp.send(); 
+
+}
+</script>
+
 
 <br>
 <br>
-<button onclick="myFunction()">add new city</button>
+<button onclick="updatehistorynewentry()">update history with new entry</button>
 <input type="text">
 
+<script>
+function updatehistorynewentry() 
+{
+    var inputId = document.getElementById("HospitalId").value; //we get the user input value and put it in a var
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("GET", "C:\Users\kingk\Documents\GitHub\CSE111Project\count_user_history.py" + inputId, true); // we're passing the hId to the server as a parameter
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("SearchBoxPt").value = this.responseText;
+        }
+    };
+    xhttp.send(); 
+
+}
+</script>
+
 
 <br>
 <br>
-<button onclick="myFunction()">delete country</button>
+<button onclick="newentrytoaqdatabase()">add new entry to current aq database</button>
 <input type="text">
 
+<script>
+function newentrytoaqdatabase() 
+{
+    var inputId = document.getElementById("HospitalId").value; //we get the user input value and put it in a var
 
-<br>
-<br>
-<button onclick="myFunction()">delete city</button>
-<input type="text">
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("GET", "C:\Users\kingk\Documents\GitHub\CSE111Project\count_user_history.py" + inputId, true); // we're passing the hId to the server as a parameter
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("SearchBoxPt").value = this.responseText;
+        }
+    };
+    xhttp.send(); 
 
-
-<br>
-<br>
-<button onclick="myFunction()">Delete data relating to a city - copy paste this segment and change some names to make work with other tables</button>
-<input type="text">
-
-
-<br>
-<br>
-<button onclick="myFunction()">Update file - date = new_date where date = old_date</button>
-<input type="text">
-
-
-<br>
-<br>
-<button onclick="myFunction()">update aqi value of a city - records user who did - check valid data later</button>
-<input type="text">
-
-
-<br>
-<br>
-<button onclick="myFunction()">update history with new entry</button>
-<input type="text">
-
-
-<br>
-<br>
-<button onclick="myFunction()">add new entry to current aq database</button>
-<input type="text">
+}
+</script>
 
 <br>
 <br>
