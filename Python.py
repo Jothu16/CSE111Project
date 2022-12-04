@@ -1,7 +1,7 @@
 import sqlite3
 import math
 
-db = sqlite3.connect("newdb.db")
+db = sqlite3.connect("newdb.sqlite")
 cursor = db.cursor()
 
 cursor.execute("DROP TABLE IF EXISTS Current_AQ_Info")
