@@ -83,7 +83,24 @@ var_dump($rows);
 
 <br>
 <br>
-<button onclick="myFunction()">count amount of history entries and user entries</button>
+<button onclick="countamountofhistoryentries()">count amount of history entries and user entries</button>
+
+<script>
+function countamountofhistoryentries() 
+{
+    var inputId = document.getElementById("HospitalId").value; //we get the user input value and put it in a var
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("GET", "C:\Users\kingk\Documents\GitHub\CSE111Project\count_user_history.py" + inputId, true); // we're passing the hId to the server as a parameter
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("SearchBoxPt").value = this.responseText;
+        }
+    };
+    xhttp.send(); 
+
+}
+</script>
 
 <br>
 <br>
@@ -189,7 +206,6 @@ var_dump($rows);
 <br>
 <br>
 <button onclick="myFunction()">Print the history of a city</button>
-<input type="text">
 
 <br>
 <br>
