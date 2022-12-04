@@ -1,20 +1,35 @@
-<br>
-<br>
-<button onclick="countamountofhistoryentries()">count amount of history entries and user entries</button>
+<?php
+    function count_history_users() {
+            $db = new SQLite3('../newdb.sqlite');
 
-<script>
-function countamountofhistoryentries() 
-{
-    var inputId = document.getElementById("HospitalId").value; //we get the user input value and put it in a var
+            $sql = "select count(History.History_Key) as total " .
+                    "from History " .
+                    "UNION " .
+                    "select count(Users.User_Key) as total " . 
+                    "from Users";
+                    
+            echo "<table>";
+            echo "<caption>Totals</caption>";
+            echo "<tbody>";
 
-    var xhttp = new XMLHttpRequest();
-    xhttp.open("GET", "C:\Users\kingk\Documents\GitHub\CSE111Project\count_user_history.py" + inputId, true); // we're passing the hId to the server as a parameter
-    xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("SearchBoxPt").value = this.responseText;
+            $ret = $db->query($sql);
+            $row = $ret->fetchArray();
+                
+            echo "<tr>";
+            echo "<td>User Count: " . $row['total'] . "</td>";
+            echo "</tr>";
+
+            $row = $ret->fetchArray();
+                
+            echo "<tr>";
+            echo "<td>History Count: " . $row['total'] . "</td>";
+            echo "</tr>";
+
+            echo "</tbody>";
+            echo "</table>";
+
+            $db->close();
         }
-    };
-    xhttp.send(); 
 
-}
-</script>
+    count_history_users();
+?>

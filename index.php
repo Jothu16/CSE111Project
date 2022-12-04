@@ -3,7 +3,7 @@
 
 <br>
 <br>
-<button onclick="countamountofhistoryentries()">count amount of history entries and user entries</button>
+<!-- <button onclick="countamountofhistoryentries()">count amount of history entries and user entries</button>
 
 <script>
 function countamountofhistoryentries() 
@@ -20,7 +20,11 @@ function countamountofhistoryentries()
     xhttp.send(); 
 
 }
-</script>
+</script> -->
+
+<form action="../buttons/CountHistoryentries.php" method="get">
+   <input type="submit" name="runQ" value="Count History and Users">
+</form>
 
 <br>
 <br>
