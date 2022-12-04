@@ -122,6 +122,9 @@ db.commit()
 city_key = 21
 AQI_value = 120
 date = '2022-07-22'
+#use this in final
+#cursor.execute("SELECT Capital_City.City_Key FROM Capital_City WHERE Capital_City.Name = ?", [selected_city])
+#city_key = cursor.fetchone()[0]
 new_entry = (date, AQI_value, city_key)
 cursor.execute("INSERT INTO Current_AQ_Info(Date, AQI_Value, City_Key) VALUES(?,?,?)", new_entry)
 cursor.execute("SELECT MAX(AQ_Key) FROM Current_AQ_Info")
