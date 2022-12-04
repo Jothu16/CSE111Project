@@ -1,29 +1,30 @@
-<br>
-<br>
-<button onclick="ALL_Edits_Made_by_User_LowTOHigh()">count all edits made by users today form lowest to highest</button>
-
 <?php
     function ALL_Edits_Made_by_User_LowTOHigh() {
         $db = new SQLite3('../newdb.sqlite');
 
-        $sql = "";
+        $sql = "SELECT Users.First_Name, Users.Last_Name, COUNT(UserEdits.User_Key) as cnt " .
+                "FROM Users " .
+                "INNER JOIN UserEdits ON UserEdits.User_Key = Users.User_Key " .
+                "GROUP BY Users.First_Name, Users.Last_Name " .
+                "ORDER BY cnt";
 
-        echo "<table>";
-        echo "<caption>Totals</caption>";
-        echo "<tbody>";
+                echo "<table>";
+                echo "<caption>Amount of edits made by Users</caption>";
+                echo "<thead>";
+                echo "<tr>";
+                echo "<th>First Name</th><th>Last Name</th><th>Edit Count</th>";
+                echo "</tr>";
+                echo "</thead>";
+                echo "<tbody>";
 
-        $ret = $db->query($sql);
-        $row = $ret->fetchArray();
-            
-        echo "<tr>";
-        echo "<td>User Count: " . $row['total'] . "</td>";
-        echo "</tr>";
-
-        $row = $ret->fetchArray();
-            
-        echo "<tr>";
-        echo "<td>History Count: " . $row['total'] . "</td>";
-        echo "</tr>";
+                $ret = $db->query($sql);
+                while ($row = $ret->fetchArray()) {
+                    echo "<tr>";
+                    echo "<td>" . $row["First_Name"] . "</td>" .
+                        "<td>" . $row["Last_Name"] . "</td>" .
+                        "<td>" . $row["cnt"] . "</td>";
+                    echo "</tr>";
+                }
 
         echo "</tbody>";
         echo "</table>";
