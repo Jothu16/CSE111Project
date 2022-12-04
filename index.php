@@ -265,10 +265,6 @@ function newentrytoaqdatabase()
 }
 </script>
 
-<br>
-<br>
-<button onclick="myFunction()">Select statment get data from Current_AQ_Info</button>
-
 <form action="../buttons/GetDatafromCurrent.php" method="get">
    <input type="submit" name="runQ" value="Print Current_AQ_Info Table">
 </form>
