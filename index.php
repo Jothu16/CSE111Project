@@ -269,9 +269,9 @@ function newentrytoaqdatabase()
    <input type="submit" name="runQ" value="Print Current_AQ_Info Table">
 </form>
 
-<br>
-<br>
-<button onclick="myFunction()">count all edits made by users from lowest to highest</button>
+<form action="../buttons/AllEditsmadebyUser.php" method="get">
+   <input type="submit" name="runQ" value="Count Edits">
+</form>
 
 <br>
 <br>
