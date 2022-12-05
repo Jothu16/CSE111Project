@@ -21,6 +21,7 @@
 
 <br>
 <br>
+<br>
 
 <form action="../buttons/AddNewUser.php" method="post">
     <label>First Name:</label> <input type = "text" name="newfirstname" />
@@ -120,9 +121,9 @@
 </form>
 
 <br>
+
 <form action="../buttons/CitiesGoodStatus.php" method="get">
-    <!-- Status: <input type = "text" name="status" /> -->
-    <label>Statuses:</label>
+    <label>Status:</label>
     <select name="status" id="status">
       <option value='Good'>Good</option>
       <option value='Moderate'>Moderate</option>
@@ -135,8 +136,19 @@
 </form>
 
 <br>
-<br>
-<button onclick="myFunction()">print all countries with a "good" status</button>
+
+<form action="../buttons/CountiresGoodStatus.php" method="get">
+    <label>Status:</label>
+    <select name="status" id="status">
+      <option value='Good'>Good</option>
+      <option value='Moderate'>Moderate</option>
+      <option value='Unhealthy for Sensitive Groups'>Unhealthy for Sensitive Groups</option>
+      <option value='Unhealthy'>Unhealthy</option>
+      <option value='Very Unhealthy'>Very Unhealthy</option>
+      <option value='Maroon'>Maroon</option>
+    </select>
+   <input type="submit" name="runQ" value="Print Countries With Given Status">
+</form>
 
 <br>
 <br>
