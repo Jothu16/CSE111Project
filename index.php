@@ -9,9 +9,13 @@
    <input type="submit" name="runQ" value="Count Cities and Countries">
 </form>
 
-<br>
-<br>
-<button onclick="myFunction()">get current userkey</button>
+<form action="../buttons/GetCurrentUserKey.php" method="post">
+    First Name: <input type = "text" name="Firstname" />
+    <br>
+    <br>
+    Last Name: <input type = "text" name="Lastname" />
+   <input type="submit" name="runQ" value="Count Cities and Countries">
+</form>
 
 <br>
 <br>
