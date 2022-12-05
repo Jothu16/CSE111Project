@@ -22,3 +22,6 @@ SELECT DISTINCT Capital_City.Name FROM Current_AQ_Info, Status
                     INNER JOIN Capital_City ON Current_AQ_Info.City_Key = Capital_City.City_Key
                     WHERE Current_AQ_Info.AQI_Value >= 51
                     AND Current_AQ_Info.AQI_Value <= 100;
+
+
+SELECT User_Key FROM Users WHERE User_Key = 10;
