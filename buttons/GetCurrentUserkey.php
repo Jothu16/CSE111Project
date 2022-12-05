@@ -10,10 +10,10 @@
 
 
         $ret = $db->query($sql);
-        $row = $ret->fetchArray();
+        $user_key = $ret->fetchArray();
 
         echo "<tr>";
-        echo "<td>User Key: " . $row['User_Key'] . "</td>";
+        echo "<td>User Key: " . $user_key['User_Key'] . "</td>";
         echo "</tr>";
 
         echo "</tbody>";
