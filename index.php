@@ -22,6 +22,14 @@
 <button onclick="addnewuser()">add new user - copy paste this and change variables to make work with other tables</button>
 <input type="text">
 
+<form action="../buttons/AddNewUser.php" method="post">
+    First Name: <input type = "text" name="newfirstname" />
+    <br>
+    <br>
+    Last Name: <input type = "text" name="newlastname" />
+   <input type="submit" name="runQ" value="Add User">
+</form>
+
 <script>
 function addnewuser() 
 {
