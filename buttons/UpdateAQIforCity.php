@@ -10,9 +10,8 @@
             echo "Invalid User";
             return;
         }
-
-        //Update Current_AQ_Info
         else {
+            //Update Current_AQ_Info
             $ret = $db->query("select Capital_City.City_Key FROM Capital_City WHERE Capital_City.Name = '" . $city . "'");
             $city_key = $ret->fetchArray();
 
