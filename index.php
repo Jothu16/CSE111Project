@@ -222,7 +222,8 @@ function newentrytoaqdatabase()
 <br>
 <button onclick="myFunction()">print lowest and highest country's AQI Value</button>
 
-<form action="../buttons/CitiesGoodStatus.php" method="get">
+<form action="../buttons/CitiesGoodStatus.php" method="post">
+    Status: <input type = "text" name="status" />
    <input type="submit" name="runQ" value="Print Good Cities">
 </form>
 
