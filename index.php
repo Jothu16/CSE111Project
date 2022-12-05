@@ -5,9 +5,13 @@
    <input type="submit" name="runQ" value="Count History and Users">
 </form>
 
+<br>
+
 <form action="../buttons/CountCountriesandCapitals.php" method="get">
    <input type="submit" name="runQ" value="Count Cities and Countries">
 </form>
+
+<br>
 
 <form action="../buttons/GetCurrentUserKey.php" method="post">
     First Name: <input type = "text" name="Firstname" />
@@ -17,6 +21,8 @@
    <input type="submit" name="runQ" value="Get User Key">
 </form>
 
+<br>
+
 <form action="../buttons/AddNewUser.php" method="post">
     First Name: <input type = "text" name="newfirstname" />
     <br>
@@ -25,45 +31,15 @@
    <input type="submit" name="runQ" value="Add User">
 </form>
 
-<script>
-function addnewuser() 
-{
-    var inputId = document.getElementById("HospitalId").value; //we get the user input value and put it in a var
-
-    var xhttp = new XMLHttpRequest();
-    xhttp.open("GET", "C:\Users\kingk\Documents\GitHub\CSE111Project\count_user_history.py" + inputId, true); // we're passing the hId to the server as a parameter
-    xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("SearchBoxPt").value = this.responseText;
-        }
-    };
-    xhttp.send(); 
-
-}
-</script>
-
-
 <br>
-<br>
-<button onclick="deleteuser()">delete user</button>
-<input type="text">
 
-<script>
-function deleteuser() 
-{
-    var inputId = document.getElementById("HospitalId").value; //we get the user input value and put it in a var
-
-    var xhttp = new XMLHttpRequest();
-    xhttp.open("GET", "C:\Users\kingk\Documents\GitHub\CSE111Project\count_user_history.py" + inputId, true); // we're passing the hId to the server as a parameter
-    xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("SearchBoxPt").value = this.responseText;
-        }
-    };
-    xhttp.send(); 
-
-}
-</script>
+<form action="../buttons/DeleteUser.php" method="post">
+    First Name: <input type = "text" name="deletefirstname" />
+    <br>
+    <br>
+    Last Name: <input type = "text" name="deletelastname" />
+   <input type="submit" name="runQ" value="Delete User">
+</form>
 
 
 <br>

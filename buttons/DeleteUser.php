@@ -1,53 +1,36 @@
-<br>
-<br>
-<button onclick="deleteuser()">delete user</button>
-<input type="text">
-
-<script>
-function deleteuser() 
-{
-    var inputId = document.getElementById("HospitalId").value; //we get the user input value and put it in a var
-
-    var xhttp = new XMLHttpRequest();
-    xhttp.open("GET", "C:\Users\kingk\Documents\GitHub\CSE111Project\count_user_history.py" + inputId, true); // we're passing the hId to the server as a parameter
-    xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("SearchBoxPt").value = this.responseText;
-        }
-    };
-    xhttp.send(); 
-
-}
-</script>
-
 <?php
-    function deleteuser() {
+    function deleteuser($firstname, $lastname) {
         $db = new SQLite3('../newdb.sqlite');
 
-        $sql = "";
+        $sql = "DELETE FROM Users WHERE Users.First_Name = '" . $firstname. "' AND Users.Last_Name = '" . $lastname . "'";
 
         echo "<table>";
-        echo "<caption>Totals</caption>";
-        echo "<tbody>";
+                echo "<caption>Users</caption>";
+                echo "<thead>";
+                echo "<tr>";
+                echo "<th>User Key</th><th>First Name</th><th>Last Name</th>";
+                echo "</tr>";
+                echo "</thead>";
+                echo "<tbody>";
 
-        $ret = $db->query($sql);
-        $row = $ret->fetchArray();
-            
-        echo "<tr>";
-        echo "<td>User Count: " . $row['total'] . "</td>";
-        echo "</tr>";
+        $db->query($sql);
+
+        $ret = $db->query("select * from Users");
 
         $row = $ret->fetchArray();
-            
-        echo "<tr>";
-        echo "<td>History Count: " . $row['total'] . "</td>";
-        echo "</tr>";
+        while ($row = $ret->fetchArray()) {
+            echo "<tr>";
+            echo "<td>" . $row["User_Key"] . "</td>" .
+                "<td>" . $row["First_Name"] . "</td>" .
+                "<td>" . $row["Last_Name"] . "</td>";
+            echo "</tr>";
+        }
 
         echo "</tbody>";
         echo "</table>";
 
         $db->close();
     }
-    deleteuser();
+    deleteuser($_POST["deletefirstname"], $_POST["deletelastname"]);
 
 ?>
