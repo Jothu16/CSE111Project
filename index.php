@@ -114,7 +114,10 @@
 </form>
 
 <br>
-<button onclick="myFunction()">print lowest and highest country's AQI Value</button>
+
+<form action="../buttons/LowandHighCountryAQI.php" method="get">
+   <input type="submit" name="runQ" value="Best and Worst">
+</form>
 
 <br>
 <form action="../buttons/CitiesGoodStatus.php" method="get">
