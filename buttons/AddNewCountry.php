@@ -1,53 +1,37 @@
-<br>
-<br>
-<button onclick="addnewcountry()">add new country</button>
-<input type="text">
-
-<script>
-function addnewcountry() 
-{
-    var inputId = document.getElementById("HospitalId").value; //we get the user input value and put it in a var
-
-    var xhttp = new XMLHttpRequest();
-    xhttp.open("GET", "C:\Users\kingk\Documents\GitHub\CSE111Project\count_user_history.py" + inputId, true); // we're passing the hId to the server as a parameter
-    xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("SearchBoxPt").value = this.responseText;
-        }
-    };
-    xhttp.send(); 
-
-}
-</script>
-
 <?php
-    function addnewcountry() {
+    function addnewcountry($new_country, $continent) {
         $db = new SQLite3('../newdb.sqlite');
 
-        $sql = "";
+        $ret = $db->query("select Cont_Key FROM Continent WHERE Name = '" . $continent . "'");
+        $cont_key = $ret->fetchArray();
+
+        $sql = "INSERT INTO Country(Cont_Key, Name) VALUES('" . $cont_key["Cont_Key"] . "', '" . $new_country . "')";
 
         echo "<table>";
-        echo "<caption>Totals</caption>";
-        echo "<tbody>";
+                echo "<caption>Country</caption>";
+                echo "<thead>";
+                echo "<tr>";
+                echo "<th>Country Key</th><th>Continent Key</th><th>Name</th>";
+                echo "</tr>";
+                echo "</thead>";
+                echo "<tbody>";
 
-        $ret = $db->query($sql);
-        $row = $ret->fetchArray();
-            
-        echo "<tr>";
-        echo "<td>User Count: " . $row['total'] . "</td>";
-        echo "</tr>";
+        $db->query($sql);
 
-        $row = $ret->fetchArray();
-            
-        echo "<tr>";
-        echo "<td>History Count: " . $row['total'] . "</td>";
-        echo "</tr>";
+        $ret = $db->query("select * from Country");
+        while ($row = $ret->fetchArray()) {
+            echo "<tr>";
+            echo "<td>" . $row["Country_Key"] . "</td>" .
+                "<td>" . $row["Cont_Key"] . "</td>" .
+                "<td>" . $row["Name"] . "</td>";
+            echo "</tr>";
+        }
 
         echo "</tbody>";
         echo "</table>";
 
         $db->close();
     }
-    addnewcountry();
+    addnewcountry($_POST["new_country_name"], $_POST["continent_name"]);
 
 ?>

@@ -6,4 +6,7 @@ SELECT COUNT(History.History_Key) as total FROM History
                     FROM Users
                     INNER JOIN UserEdits ON UserEdits.User_Key = Users.User_Key
                     GROUP BY Users.First_Name, Users.Last_Name
-                    ORDER BY cnt
+                    ORDER BY cnt;
+
+SELECT Cont_Key FROM Continent WHERE Name = 'North America';
+INSERT INTO Country(Cont_Key, Name) VALUES('6','United States');
