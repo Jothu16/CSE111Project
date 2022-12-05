@@ -17,11 +17,6 @@
    <input type="submit" name="runQ" value="Get User Key">
 </form>
 
-<br>
-<br>
-<button onclick="addnewuser()">add new user - copy paste this and change variables to make work with other tables</button>
-<input type="text">
-
 <form action="../buttons/AddNewUser.php" method="post">
     First Name: <input type = "text" name="newfirstname" />
     <br>
