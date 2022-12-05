@@ -15,8 +15,6 @@
 
 <form action="../buttons/GetCurrentUserKey.php" method="post">
     First Name: <input type = "text" name="Firstname" />
-    <br>
-    <br>
     Last Name: <input type = "text" name="Lastname" />
    <input type="submit" name="runQ" value="Get User Key">
 </form>
@@ -25,8 +23,6 @@
 
 <form action="../buttons/AddNewUser.php" method="post">
     First Name: <input type = "text" name="newfirstname" />
-    <br>
-    <br>
     Last Name: <input type = "text" name="newlastname" />
    <input type="submit" name="runQ" value="Add User">
 </form>
@@ -35,16 +31,12 @@
 
 <form action="../buttons/DeleteUser.php" method="post">
     First Name: <input type = "text" name="deletefirstname" />
-    <br>
-    <br>
     Last Name: <input type = "text" name="deletelastname" />
    <input type="submit" name="runQ" value="Delete User">
 </form>
 
 <form action="../buttons/AddNewCountry.php" method="post">
     Country: <input type = "text" name="new_country_name" />
-    <br>
-    <br>
     Continent: <input type = "text" name="continent_name" />
    <input type="submit" name="runQ" value="Add Country">
 </form>
@@ -164,28 +156,13 @@ function updatefile()
 }
 </script>
 
-
-<br>
-<br>
-<button onclick="updateAQIforcity()">update aqi value of a city - records user who did - check valid data later</button>
-<input type="text">
-
-<script>
-function updateAQIforcity() 
-{
-    var inputId = document.getElementById("HospitalId").value; //we get the user input value and put it in a var
-
-    var xhttp = new XMLHttpRequest();
-    xhttp.open("GET", "C:\Users\kingk\Documents\GitHub\CSE111Project\count_user_history.py" + inputId, true); // we're passing the hId to the server as a parameter
-    xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("SearchBoxPt").value = this.responseText;
-        }
-    };
-    xhttp.send(); 
-
-}
-</script>
+<form action="../buttons/UpdateAQIforCity.php" method="post">
+    User Key Login: <input type = "text" name="login" />
+    City: <input type = "text" name="city_name" />
+    Date: <input type = "text" name="new_date" />
+    New AQ Value: <input type = "text" name="new_AQI_value" />
+   <input type="submit" name="runQ" value="Update AQI Entry">
+</form>
 
 
 <br>

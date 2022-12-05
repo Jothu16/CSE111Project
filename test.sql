@@ -10,3 +10,5 @@ SELECT COUNT(History.History_Key) as total FROM History
 
 SELECT Cont_Key FROM Continent WHERE Name = 'North America';
 INSERT INTO Country(Cont_Key, Name) VALUES('6','United States');
+
+select City_Key FROM Capital_City WHERE Capital_City.Name = 'Tirana';

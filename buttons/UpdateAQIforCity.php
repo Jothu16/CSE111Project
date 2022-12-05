@@ -1,53 +1,75 @@
-<br>
-<br>
-<button onclick="updateAQIforcity()">update aqi value of a city - records user who did - check valid data later</button>
-<input type="text">
-
-<script>
-function updateAQIforcity() 
-{
-    var inputId = document.getElementById("HospitalId").value; //we get the user input value and put it in a var
-
-    var xhttp = new XMLHttpRequest();
-    xhttp.open("GET", "C:\Users\kingk\Documents\GitHub\CSE111Project\count_user_history.py" + inputId, true); // we're passing the hId to the server as a parameter
-    xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("SearchBoxPt").value = this.responseText;
-        }
-    };
-    xhttp.send(); 
-
-}
-</script>
-
 <?php
-    function updateAQIforcity() {
+    include('GetCurrentUserkey.php');
+
+    function updateAQIforcity($user_key, $city, $date, $aqi_val) {
         $db = new SQLite3('../newdb.sqlite');
 
-        $sql = "";
+        //Update Current_AQ_Info
+
+        $ret = $db->query("select Capital_City.City_Key FROM Capital_City WHERE Capital_City.Name = '" . $city . "'");
+        $city_key = $ret->fetchArray();
+
+        $sql = "update Current_AQ_Info SET Date = '" . $date . 
+        "', AQI_Value = " . $aqi_val .
+        " WHERE City_Key = " . $city_key['City_Key'] . "";
 
         echo "<table>";
-        echo "<caption>Totals</caption>";
-        echo "<tbody>";
+                echo "<caption>" . $city_key['City_Key'] . "</caption>";
+                echo "<thead>";
+                echo "<tr>";
+                echo "<th>AQ Key</th><th>Date</th><th>AQI Value</th><th>City Key</th>";
+                echo "</tr>";
+                echo "</thead>";
+                echo "<tbody>";
 
-        $ret = $db->query($sql);
-        $row = $ret->fetchArray();
-            
-        echo "<tr>";
-        echo "<td>User Count: " . $row['total'] . "</td>";
-        echo "</tr>";
-
-        $row = $ret->fetchArray();
-            
-        echo "<tr>";
-        echo "<td>History Count: " . $row['total'] . "</td>";
-        echo "</tr>";
+        $db->query($sql);
+        
+        $ret = $db->query("select * from Current_AQ_Info");
+        while ($row = $ret->fetchArray()) {
+            echo "<tr>";
+            echo "<td>" . $row["AQ_Key"] . "</td>" .
+                "<td>" . $row["Date"] . "</td>" .
+                "<td>" . $row["AQI_Value"] . "</td>" .
+                "<td>" . $row["City_Key"] . "</td>";
+            echo "</tr>";
+        }
 
         echo "</tbody>";
         echo "</table>";
 
+        //Update UserEdits
+
+        $ret = $db->query("select AQ_Key FROM Current_AQ_Info WHERE City_Key = " . $city_key["City_Key"]);
+        $aq_key = $ret->fetchArray();
+
+        echo "<table>";
+                echo "<caption> User Edits</caption>";
+                echo "<thead>";
+                echo "<tr>";
+                echo "<th>AQ Key</th><th>User Key</th><th>City Key</th><th>Date</th>";
+                echo "</tr>";
+                echo "</thead>";
+                echo "<tbody>";
+
+        $sql = "INSERT INTO UserEdits(AQ_Key, User_Key, City_Key, Date) VALUES(" . $aq_key["AQ_Key"] . ", " . $user_key . 
+        ", " . $city_key["City_Key"] . ", '" . $date . "')";
+        
+        $db->query($sql);
+
+        $ret = $db->query("select * from UserEdits");
+        while ($row = $ret->fetchArray()) {
+            echo "<tr>";
+            echo "<td>" . $row["AQ_Key"] . "</td>" .
+                "<td>" . $row["User_Key"] . "</td>" .
+                "<td>" . $row["City_Key"] . "</td>" .
+                "<td>" . $row["Date"] . "</td>";
+            echo "</tr>";
+        }
+
+        //update history
+
         $db->close();
     }
-    updateAQIforcity();
+    updateAQIforcity($_POST["login"], $_POST["city_name"], $_POST["new_date"], $_POST["new_AQI_value"]);
 
 ?>
