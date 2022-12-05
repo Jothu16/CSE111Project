@@ -118,12 +118,12 @@
     <!-- Status: <input type = "text" name="status" /> -->
     <label>Statuses:</label>
     <select name="status" id="status">
-      <option value='All'>Good</option>
-      <option value='PC'>Moderate</option>
-      <option value='Laptop'>Unhealthy for Sensitive Groups</option>
-      <option value='Printer'>Unhealthy</option>
-      <option value='Printer'>Very Unhealthy</option>
-      <option value='Printer'>Maroon</option>
+      <option value='Good'>Good</option>
+      <option value='Moderate'>Moderate</option>
+      <option value='Unhealthy for Sensitive Groups'>Unhealthy for Sensitive Groups</option>
+      <option value='Unhealthy'>Unhealthy</option>
+      <option value='Very Unhealthy'>Very Unhealthy</option>
+      <option value='Maroon'>Maroon</option>
     </select>
    <input type="submit" name="runQ" value="Print Cities With Given Status">
 </form>
