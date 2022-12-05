@@ -1,53 +1,32 @@
-<br>
-<br>
-<button onclick="updatefile()">Update file - date = new_date where date = old_date</button>
-<input type="text">
-
-<script>
-function updatefile() 
-{
-    var inputId = document.getElementById("HospitalId").value; //we get the user input value and put it in a var
-
-    var xhttp = new XMLHttpRequest();
-    xhttp.open("GET", "C:\Users\kingk\Documents\GitHub\CSE111Project\count_user_history.py" + inputId, true); // we're passing the hId to the server as a parameter
-    xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("SearchBoxPt").value = this.responseText;
-        }
-    };
-    xhttp.send(); 
-
-}
-</script>
-
 <?php
-    function updatefile() {
+    function updatefile($old_date, $new_date) {
         $db = new SQLite3('../newdb.sqlite');
 
-        $sql = "";
+        $sql = "UPDATE Current_AQ_Info SET Date = '" . $new_date . "' WHERE Date = '" . $old_date . "'";
 
         echo "<table>";
-        echo "<caption>Totals</caption>";
-        echo "<tbody>";
+            echo "<caption>Current Air Quality Information</caption>";
+            echo "<thead>";
+            echo "<tr>";
+            echo "<th>AQ Key</th><th>Date</th><th>AQI Value</th><th>City Key</th>";
+            echo "</tr>";
+            echo "</thead>";
+            echo "<tbody>";
 
-        $ret = $db->query($sql);
-        $row = $ret->fetchArray();
-            
-        echo "<tr>";
-        echo "<td>User Count: " . $row['total'] . "</td>";
-        echo "</tr>";
+        $db->query($sql);
 
-        $row = $ret->fetchArray();
-            
-        echo "<tr>";
-        echo "<td>History Count: " . $row['total'] . "</td>";
-        echo "</tr>";
-
-        echo "</tbody>";
-        echo "</table>";
+        $ret = $db->query("select * from Current_AQ_Info");
+        while ($row = $ret->fetchArray()) {
+            echo "<tr>";
+            echo "<td>" . $row["AQ_Key"] . "</td>" .
+                "<td>" . $row["Date"] . "</td>" .
+                "<td>" . $row["AQI_Value"] . "</td>" .
+                "<td>" . $row["City_Key"] . "</td>";
+            echo "</tr>";
+        }
 
         $db->close();
     }
-    updatefile();
+    updatefile($_POST["old_date"], $_POST["new_date"]);
 
 ?>

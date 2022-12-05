@@ -72,27 +72,11 @@
    <input type="submit" name="runQ" value="Delete City Data">
 </form>
 
-<br>
-<br>
-<button onclick="updatefile()">Update file - date = new_date where date = old_date</button>
-<input type="text">
-
-<script>
-function updatefile() 
-{
-    var inputId = document.getElementById("HospitalId").value; //we get the user input value and put it in a var
-
-    var xhttp = new XMLHttpRequest();
-    xhttp.open("GET", "C:\Users\kingk\Documents\GitHub\CSE111Project\count_user_history.py" + inputId, true); // we're passing the hId to the server as a parameter
-    xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("SearchBoxPt").value = this.responseText;
-        }
-    };
-    xhttp.send(); 
-
-}
-</script>
+<form action="../buttons/UpdateFile.php" method="post">
+    Old Date: <input type = "text" name="old_date" />
+    New Date: <input type = "text" name="new_date" />
+   <input type="submit" name="runQ" value="Update Date">
+</form>
 
 <form action="../buttons/UpdateAQIforCity.php" method="post">
     User Key Login: <input type = "text" name="login" />
