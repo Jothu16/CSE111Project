@@ -151,8 +151,19 @@
 </form>
 
 <br>
-<br>
-<button onclick="myFunction()">print all continents with a country with "good" status and how many</button>
+
+<form action="../buttons/CountiresGoodHowMany.php" method="get">
+    <label>Status:</label>
+    <select name="status" id="status">
+      <option value='Good'>Good</option>
+      <option value='Moderate'>Moderate</option>
+      <option value='Unhealthy for Sensitive Groups'>Unhealthy for Sensitive Groups</option>
+      <option value='Unhealthy'>Unhealthy</option>
+      <option value='Very Unhealthy'>Very Unhealthy</option>
+      <option value='Maroon'>Maroon</option>
+    </select>
+   <input type="submit" name="runQ" value="Print Continents With Given Status">
+</form>
 
 <br>
 <br>
