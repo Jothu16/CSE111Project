@@ -110,6 +110,54 @@
 
 <br>
 
+<form action="../buttons/get_city_table.php" method="get">
+   <input type="submit" name="runQ" value="Print Capital_City Table">
+</form>
+
+<br>
+
+<form action="../buttons/get_country_table.php" method="get">
+   <input type="submit" name="runQ" value="Print Country Table">
+</form>
+
+<br>
+
+<form action="../buttons/get_continent_table.php" method="get">
+   <input type="submit" name="runQ" value="Print Continent Table">
+</form>
+
+<br>
+
+<form action="../buttons/get_history.php" method="get">
+   <input type="submit" name="runQ" value="Print History Table">
+</form>
+
+<br>
+
+<form action="../buttons/get_history_status.php" method="get">
+   <input type="submit" name="runQ" value="Print HistoryStatus Table">
+</form>
+
+<br>
+
+<form action="../buttons/get_status.php" method="get">
+   <input type="submit" name="runQ" value="Print Status Table">
+</form>
+
+<br>
+
+<form action="../buttons/get_user_edits.php" method="get">
+   <input type="submit" name="runQ" value="Print UserEdits Table">
+</form>
+
+<br>
+
+<form action="../buttons/get_users.php" method="get">
+   <input type="submit" name="runQ" value="Print Users Table">
+</form>
+
+<br>
+
 <form action="../buttons/AllEditsmadebyUser.php" method="get">
    <input type="submit" name="runQ" value="Count Edits">
 </form>
