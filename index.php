@@ -72,11 +72,15 @@
    <input type="submit" name="runQ" value="Delete City Data">
 </form>
 
+<br>
+
 <form action="../buttons/UpdateFile.php" method="post">
     Old Date: <input type = "text" name="old_date" />
     New Date: <input type = "text" name="new_date" />
    <input type="submit" name="runQ" value="Update Date">
 </form>
+
+<br>
 
 <form action="../buttons/UpdateAQIforCity.php" method="post">
     User Key Login: <input type = "text" name="login" />
@@ -86,51 +90,15 @@
    <input type="submit" name="runQ" value="Update AQI Entry">
 </form>
 
-
-<!-- <br>
 <br>
-<button onclick="updatehistorynewentry()">update history with new entry</button>
-<input type="text">
 
-<script>
-function updatehistorynewentry() 
-{
-    var inputId = document.getElementById("HospitalId").value; //we get the user input value and put it in a var
-
-    var xhttp = new XMLHttpRequest();
-    xhttp.open("GET", "C:\Users\kingk\Documents\GitHub\CSE111Project\count_user_history.py" + inputId, true); // we're passing the hId to the server as a parameter
-    xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("SearchBoxPt").value = this.responseText;
-        }
-    };
-    xhttp.send(); 
-
-}
-</script> -->
-
-
-<br>
-<br>
-<button onclick="newentrytoaqdatabase()">add new entry to current aq database</button>
-<input type="text">
-
-<script>
-function newentrytoaqdatabase() 
-{
-    var inputId = document.getElementById("HospitalId").value; //we get the user input value and put it in a var
-
-    var xhttp = new XMLHttpRequest();
-    xhttp.open("GET", "C:\Users\kingk\Documents\GitHub\CSE111Project\count_user_history.py" + inputId, true); // we're passing the hId to the server as a parameter
-    xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("SearchBoxPt").value = this.responseText;
-        }
-    };
-    xhttp.send(); 
-
-}
-</script>
+<form action="../buttons/AddEntrytoCurrent.php" method="post">
+    User Key Login: <input type = "text" name="login" />
+    City: <input type = "text" name="city_name" />
+    Date: <input type = "text" name="new_date" />
+    New AQ Value: <input type = "text" name="new_AQI_value" />
+   <input type="submit" name="runQ" value="Add AQI Entry">
+</form>
 
 <form action="../buttons/GetDatafromCurrent.php" method="get">
    <input type="submit" name="runQ" value="Print Current_AQ_Info Table">
