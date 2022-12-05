@@ -1,6 +1,4 @@
 <?php
-    include('GetCurrentUserkey.php');
-
     function updateAQIforcity($user_key, $city, $date, $aqi_val) {
         $db = new SQLite3('../newdb.sqlite');
 
@@ -14,7 +12,7 @@
         " WHERE City_Key = " . $city_key['City_Key'] . "";
 
         echo "<table>";
-                echo "<caption>" . $city_key['City_Key'] . "</caption>";
+                echo "<caption>Current Air Quality Information</caption>";
                 echo "<thead>";
                 echo "<tr>";
                 echo "<th>AQ Key</th><th>Date</th><th>AQI Value</th><th>City Key</th>";
@@ -43,7 +41,7 @@
         $aq_key = $ret->fetchArray();
 
         echo "<table>";
-                echo "<caption> User Edits</caption>";
+                echo "<caption>User Edits</caption>";
                 echo "<thead>";
                 echo "<tr>";
                 echo "<th>AQ Key</th><th>User Key</th><th>City Key</th><th>Date</th>";
@@ -67,6 +65,57 @@
         }
 
         //update history
+
+        $sql = "INSERT INTO History(Date, AQI_Value, City_Key) VALUES('" . $date . "', " . $aqi_val . ", " . $city_key["City_Key"] . ")";
+
+        echo "<table>";
+                echo "<caption>History</caption>";
+                echo "<thead>";
+                echo "<tr>";
+                echo "<th>AQ Key</th><th>User Key</th><th>City Key</th><th>Date</th>";
+                echo "</tr>";
+                echo "</thead>";
+                echo "<tbody>";
+
+        $db->query($sql);
+        
+        $ret = $db->query("select * from History");
+        while ($row = $ret->fetchArray()) {
+            echo "<tr>";
+            echo "<td>" . $row["History_Key"] . "</td>" .
+                "<td>" . $row["Date"] . "</td>" .
+                "<td>" . $row["AQI_Value"] . "</td>" .
+                "<td>" . $row["City_Key"] . "</td>";
+            echo "</tr>";
+        }
+
+        //update historystatus
+
+        $ret = $db->query("select History_Key FROM History WHERE City_Key = " . $city_key["City_Key"] . " AND Date = '" . $date . "'");
+        $history_key = $ret->fetchArray();
+
+        $sql = "INSERT INTO HistoryStatus(History_Key, Status_Key, City_Key) " .
+        "VALUES(" . $history_key['History_Key'] . ", " . ceil($aqi_val / 50) . ", " . $city_key["City_Key"] . ")";
+
+        echo "<table>";
+                echo "<caption>History Status</caption>";
+                echo "<thead>";
+                echo "<tr>";
+                echo "<th>History Key</th><th>Status Key</th><th>City Key</th>";
+                echo "</tr>";
+                echo "</thead>";
+                echo "<tbody>";
+
+        $db->query($sql);
+
+        $ret = $db->query("select * from HistoryStatus");
+        while ($row = $ret->fetchArray()) {
+            echo "<tr>";
+            echo "<td>" . $row["History_Key"] . "</td>" .
+                "<td>" . $row["Status_Key"] . "</td>" .
+                "<td>" . $row["City_Key"] . "</td>";
+            echo "</tr>";
+        }
 
         $db->close();
     }
