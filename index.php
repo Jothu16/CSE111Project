@@ -20,6 +20,7 @@
 </form>
 
 <br>
+<br>
 
 <form action="../buttons/AddNewUser.php" method="post">
     <label>First Name:</label> <input type = "text" name="newfirstname" />
@@ -99,6 +100,8 @@
     <label>New AQ Value:</label> <input type = "text" name="new_AQI_value" />
    <input type="submit" name="runQ" value="Add AQI Entry">
 </form>
+
+<br>
 
 <form action="../buttons/GetDatafromCurrent.php" method="get">
    <input type="submit" name="runQ" value="Print Current_AQ_Info Table">
