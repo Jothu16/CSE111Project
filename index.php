@@ -23,80 +23,80 @@
 
 <form action="../buttons/AddNewUser.php" method="post">
     <label>First Name:</label> <input type = "text" name="newfirstname" />
-    Last Name: <input type = "text" name="newlastname" />
+    <label>Last Name:</label> <input type = "text" name="newlastname" />
    <input type="submit" name="runQ" value="Add User">
 </form>
 
 <br>
 
 <form action="../buttons/DeleteUser.php" method="post">
-    First Name: <input type = "text" name="deletefirstname" />
-    Last Name: <input type = "text" name="deletelastname" />
+<label>First Name:</label> <input type = "text" name="deletefirstname" />
+<label>Last Name:</label> <input type = "text" name="deletelastname" />
    <input type="submit" name="runQ" value="Delete User">
 </form>
 
 <br>
 
 <form action="../buttons/AddNewCountry.php" method="post">
-    Country: <input type = "text" name="new_country_name" />
-    Continent: <input type = "text" name="continent_name" />
+<label>Country:</label> <input type = "text" name="new_country_name" />
+<label>Continent:</label> <input type = "text" name="continent_name" />
    <input type="submit" name="runQ" value="Add Country">
 </form>
 
 <br>
 
 <form action="../buttons/AddNewCity.php" method="post">
-    Country: <input type = "text" name="country_name" />
-    City: <input type = "text" name="new_city_name" />
+<label>Country:</label> <input type = "text" name="country_name" />
+<label>City:</label> <input type = "text" name="new_city_name" />
    <input type="submit" name="runQ" value="Add City">
 </form>
 
 <br>
 
 <form action="../buttons/DeleteCountry.php" method="post">
-    Country: <input type = "text" name="country_name" />
+<label>Country:</label> <input type = "text" name="country_name" />
    <input type="submit" name="runQ" value="Delete Country">
 </form>
 
 <br>
 
 <form action="../buttons/DeleteCity.php" method="post">
-    City: <input type = "text" name="city_name" />
+<label>City:</label> <input type = "text" name="city_name" />
    <input type="submit" name="runQ" value="Delete City">
 </form>
 
 <br>
 
 <form action="../buttons/DeleteCityData.php" method="post">
-    City: <input type = "text" name="city_name" />
+<label>City:</label> <input type = "text" name="city_name" />
    <input type="submit" name="runQ" value="Delete City Data">
 </form>
 
 <br>
 
 <form action="../buttons/UpdateFile.php" method="post">
-    Old Date: <input type = "text" name="old_date" />
-    New Date: <input type = "text" name="new_date" />
+<label>Old Date:</label> <input type = "text" name="old_date" />
+<label>New Date:</label> <input type = "text" name="new_date" />
    <input type="submit" name="runQ" value="Update Date">
 </form>
 
 <br>
 
 <form action="../buttons/UpdateAQIforCity.php" method="post">
-    User Key Login: <input type = "text" name="login" />
-    City: <input type = "text" name="city_name" />
-    Date: <input type = "text" name="new_date" />
-    New AQ Value: <input type = "text" name="new_AQI_value" />
+<label>User Key Login:</label> <input type = "text" name="login" />
+    <label>City:</label> <input type = "text" name="city_name" />
+    <label>Date:</label> <input type = "text" name="new_date" />
+    <label>New AQ Value:</label> <input type = "text" name="new_AQI_value" />
    <input type="submit" name="runQ" value="Update AQI Entry">
 </form>
 
 <br>
 
 <form action="../buttons/AddEntrytoCurrent.php" method="post">
-    User Key Login: <input type = "text" name="login" />
-    City: <input type = "text" name="city_name" />
-    Date: <input type = "text" name="new_date" />
-    New AQ Value: <input type = "text" name="new_AQI_value" />
+<label>User Key Login:</label> <input type = "text" name="login" />
+<label>City:</label> <input type = "text" name="city_name" />
+<label>Date:</label> <input type = "text" name="new_date" />
+<label>New AQ Value:</label> <input type = "text" name="new_AQI_value" />
    <input type="submit" name="runQ" value="Add AQI Entry">
 </form>
 
