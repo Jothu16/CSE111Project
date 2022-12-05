@@ -81,7 +81,7 @@
             echo "<caption>History</caption>";
             echo "<thead>";
             echo "<tr>";
-            echo "<th>AQ Key</th><th>User Key</th><th>City Key</th><th>Date</th>";
+            echo "<th>History_Key</th><th>Date</th><th>AQI Value</th><th>City Key</th>";
             echo "</tr>";
             echo "</thead>";
             echo "<tbody>";
