@@ -32,6 +32,6 @@
 
         $db->close();
     }
-    CitiesGoodStatus($_POST["status"]);
+    CitiesGoodStatus($_GET["status"]);
 
 ?>

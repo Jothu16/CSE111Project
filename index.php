@@ -14,15 +14,15 @@
 <br>
 
 <form action="../buttons/GetCurrentUserKey.php" method="post">
-    First Name: <input type = "text" name="Firstname" />
-    Last Name: <input type = "text" name="Lastname" />
+    <label>First Name:</label> <input type = "text" name="Firstname" />
+    <label>Last Name:</lable> <input type = "text" name="Lastname" />
    <input type="submit" name="runQ" value="Get User Key">
 </form>
 
 <br>
 
 <form action="../buttons/AddNewUser.php" method="post">
-    First Name: <input type = "text" name="newfirstname" />
+    <label>First Name:</label> <input type = "text" name="newfirstname" />
     Last Name: <input type = "text" name="newlastname" />
    <input type="submit" name="runQ" value="Add User">
 </form>
@@ -114,8 +114,17 @@
 <button onclick="myFunction()">print lowest and highest country's AQI Value</button>
 
 <br>
-<form action="../buttons/CitiesGoodStatus.php" method="post">
-    Status: <input type = "text" name="status" />
+<form action="../buttons/CitiesGoodStatus.php" method="get">
+    <!-- Status: <input type = "text" name="status" /> -->
+    <label>Statuses:</label>
+    <select name="status" id="status">
+      <option value='All'>Good</option>
+      <option value='PC'>Moderate</option>
+      <option value='Laptop'>Unhealthy for Sensitive Groups</option>
+      <option value='Printer'>Unhealthy</option>
+      <option value='Printer'>Very Unhealthy</option>
+      <option value='Printer'>Maroon</option>
+    </select>
    <input type="submit" name="runQ" value="Print Cities With Given Status">
 </form>
 
