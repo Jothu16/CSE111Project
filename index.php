@@ -14,7 +14,7 @@
     <br>
     <br>
     Last Name: <input type = "text" name="Lastname" />
-   <input type="submit" name="runQ" value="Count Cities and Countries">
+   <input type="submit" name="runQ" value="Get User Key">
 </form>
 
 <br>
