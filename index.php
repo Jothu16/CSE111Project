@@ -165,7 +165,7 @@ function updatefile()
 </form>
 
 
-<br>
+<!-- <br>
 <br>
 <button onclick="updatehistorynewentry()">update history with new entry</button>
 <input type="text">
@@ -185,7 +185,7 @@ function updatehistorynewentry()
     xhttp.send(); 
 
 }
-</script>
+</script> -->
 
 
 <br>
