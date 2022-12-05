@@ -43,59 +43,27 @@
    <input type="submit" name="runQ" value="Add Country">
 </form>
 
+<br>
 
 <form action="../buttons/AddNewCity.php" method="post">
     Country: <input type = "text" name="country_name" />
     City: <input type = "text" name="new_city_name" />
-   <input type="submit" name="runQ" value="Add Country">
+   <input type="submit" name="runQ" value="Add City">
 </form>
 
+<br>
 
+<form action="../buttons/DeleteCountry.php" method="post">
+    Country: <input type = "text" name="country_name" />
+   <input type="submit" name="runQ" value="Delete Country">
+</form>
 
 <br>
-<br>
-<button onclick="deletecountry()">delete country</button>
-<input type="text">
 
-<script>
-function deletecountry() 
-{
-    var inputId = document.getElementById("HospitalId").value; //we get the user input value and put it in a var
-
-    var xhttp = new XMLHttpRequest();
-    xhttp.open("GET", "C:\Users\kingk\Documents\GitHub\CSE111Project\count_user_history.py" + inputId, true); // we're passing the hId to the server as a parameter
-    xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("SearchBoxPt").value = this.responseText;
-        }
-    };
-    xhttp.send(); 
-
-}
-</script>
-
-
-<br>
-<br>
-<button onclick="deletecity()">delete city</button>
-<input type="text">
-
-<script>
-function deletecity() 
-{
-    var inputId = document.getElementById("HospitalId").value; //we get the user input value and put it in a var
-
-    var xhttp = new XMLHttpRequest();
-    xhttp.open("GET", "C:\Users\kingk\Documents\GitHub\CSE111Project\count_user_history.py" + inputId, true); // we're passing the hId to the server as a parameter
-    xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("SearchBoxPt").value = this.responseText;
-        }
-    };
-    xhttp.send(); 
-
-}
-</script>
+<form action="../buttons/DeleteCity.php" method="post">
+    City: <input type = "text" name="city_name" />
+   <input type="submit" name="runQ" value="Delete City">
+</form>
 
 
 <br>
