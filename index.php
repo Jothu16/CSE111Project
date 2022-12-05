@@ -35,6 +35,8 @@
    <input type="submit" name="runQ" value="Delete User">
 </form>
 
+<br>
+
 <form action="../buttons/AddNewCountry.php" method="post">
     Country: <input type = "text" name="new_country_name" />
     Continent: <input type = "text" name="continent_name" />
@@ -214,17 +216,19 @@ function newentrytoaqdatabase()
    <input type="submit" name="runQ" value="Print Current_AQ_Info Table">
 </form>
 
+<br>
+
 <form action="../buttons/AllEditsmadebyUser.php" method="get">
    <input type="submit" name="runQ" value="Count Edits">
 </form>
 
 <br>
-<br>
 <button onclick="myFunction()">print lowest and highest country's AQI Value</button>
 
+<br>
 <form action="../buttons/CitiesGoodStatus.php" method="post">
     Status: <input type = "text" name="status" />
-   <input type="submit" name="runQ" value="Print Good Cities">
+   <input type="submit" name="runQ" value="Print Cities With Given Status">
 </form>
 
 <br>
