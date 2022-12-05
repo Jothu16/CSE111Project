@@ -1,54 +1,39 @@
-<br>
-<br>
-<button onclick="deletecitydata()">Delete data relating to a city - copy paste this segment and change some names to make work with other tables</button>
-<input type="text">
-
-
-<script>
-function deletecitydata() 
-{
-    var inputId = document.getElementById("HospitalId").value; //we get the user input value and put it in a var
-
-    var xhttp = new XMLHttpRequest();
-    xhttp.open("GET", "C:\Users\kingk\Documents\GitHub\CSE111Project\count_user_history.py" + inputId, true); // we're passing the hId to the server as a parameter
-    xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("SearchBoxPt").value = this.responseText;
-        }
-    };
-    xhttp.send(); 
-
-}
-</script>
-
 <?php
-    function deletecitydata() {
+    function deletecitydata($city) {
         $db = new SQLite3('../newdb.sqlite');
 
-        $sql = "";
+        $ret = $db->query("select Capital_City.City_Key FROM Capital_City WHERE Capital_City.Name = '" . $city . "'");
+        $city_key = $ret->fetchArray();
+
+        $sql = "DELETE FROM Current_AQ_Info WHERE Current_AQ_Info.City_Key = '" . $city_key["City_Key"] . "'";
 
         echo "<table>";
-        echo "<caption>Totals</caption>";
+        echo "<caption>Current Air Quality Information</caption>";
+        echo "<thead>";
+        echo "<tr>";
+        echo "<th>AQ Key</th><th>Date</th><th>AQI Value</th><th>City Key</th>";
+        echo "</tr>";
+        echo "</thead>";
         echo "<tbody>";
 
-        $ret = $db->query($sql);
-        $row = $ret->fetchArray();
-            
-        echo "<tr>";
-        echo "<td>User Count: " . $row['total'] . "</td>";
-        echo "</tr>";
+        $db->query($sql);
 
-        $row = $ret->fetchArray();
-            
-        echo "<tr>";
-        echo "<td>History Count: " . $row['total'] . "</td>";
-        echo "</tr>";
+        $ret = $db->query("select * from Current_AQ_Info");
+        while ($row = $ret->fetchArray()) {
+            echo "<tr>";
+            echo "<td>" . $row["AQ_Key"] . "</td>" .
+                "<td>" . $row["Date"] . "</td>" .
+                "<td>" . $row["AQI_Value"] . "</td>" .
+                "<td>" . $row["City_Key"] . "</td>";
+            echo "</tr>";
+        }
 
         echo "</tbody>";
         echo "</table>";
 
         $db->close();
+        
     }
-    deletecitydata();
+    deletecitydata($_POST["city_name"]);
 
 ?>
