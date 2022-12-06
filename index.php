@@ -268,7 +268,6 @@
 <form action="../buttons/ALLCitiesexceptunhealthy.php" method="get">
     <label>Status:</label>
     <select name="status" id="status">
-      <option value='Good'>Good</option>
       <option value='Moderate'>Moderate</option>
       <option value='Unhealthy for Sensitive Groups'>Unhealthy for Sensitive Groups</option>
       <option value='Unhealthy'>Unhealthy</option>
