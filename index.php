@@ -232,9 +232,9 @@
    <input type="submit" name="runQ" value="Get Average">
 </form>
 
-<br>
-<br>
-<button onclick="myFunction()">count the amount of times each city had a certain status</button>
+<form action="../buttons/CountCityCertainStatus.php" method="get">
+   <input type="submit" name="runQ" value="Count Amount of Status Each City Had">
+</form>
 
 <br>
 <br>
