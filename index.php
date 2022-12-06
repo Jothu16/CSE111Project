@@ -219,9 +219,10 @@
    <input type="submit" name="runQ" value="Get Amount of Entries for Each Status">
 </form>
 
-<br>
-<br>
-<button onclick="myFunction()">Print the history of a city</button>
+<form action="../buttons/HistoryofCity.php" method="post">
+    <label>City:</label> <input type = "text" name="city_name" />
+   <input type="submit" name="runQ" value="Get History">
+</form>
 
 <br>
 <br>
