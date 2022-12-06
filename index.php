@@ -219,14 +219,18 @@
    <input type="submit" name="runQ" value="Get Amount of Entries for Each Status">
 </form>
 
+<br>
+
 <form action="../buttons/HistoryofCity.php" method="post">
     <label>City:</label> <input type = "text" name="city_name" />
    <input type="submit" name="runQ" value="Get History">
 </form>
 
 <br>
-<br>
-<button onclick="myFunction()">print average air quality and the average status of each continent</button>
+
+<form action="../buttons/AverageAQandStatusContinent.php" method="get">
+   <input type="submit" name="runQ" value="Get Average">
+</form>
 
 <br>
 <br>
