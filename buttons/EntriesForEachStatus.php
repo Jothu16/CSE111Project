@@ -1,18 +1,20 @@
-br>
-<br>
-<button onclick="EntriesForEachStatus()">Count the amount of entries for each status description</button>
-
 <?php
     function EntriesForEachStatus() {
         $db = new SQLite3('../newdb.sqlite');
 
-        $sql = "SELECT COUNT(Capital_City.City_Key) FROM Capital_City";
+        $sql = "SELECT Status.Description, COUNT(Status.Description) as cnt " .
+        "FROM Current_AQ_Info, Status " .
+        "INNER JOIN Capital_City ON Capital_City.City_Key = Current_AQ_Info.City_Key " .
+        "WHERE Current_AQ_Info.AQI_Value >= Status.Threshold_Lower " .
+        "AND Current_AQ_Info.AQI_Value <= Status.Threshold_Upper " .
+        "GROUP BY Status.Description " .
+        "ORDER BY COUNT(Status.Description) DESC";
 
         echo "<table>";
-                echo "<caption>Current Air Quality Information</caption>";
+                echo "<caption>Status Count</caption>";
                 echo "<thead>";
                 echo "<tr>";
-                echo "<th>AQ_Key</th><th>Date</th><th>AQI_Value</th><th>City_Key</th>";
+                echo "<th>Status</th><th>Count</th>";
                 echo "</tr>";
                 echo "</thead>";
                 echo "<tbody>";
@@ -21,10 +23,8 @@ br>
         $ret = $db->query($sql);
         while ($row = $ret->fetchArray()) {
             echo "<tr>";
-            echo "<td>" . $row["AQ_Key"] . "</td>" .
-                "<td>" . $row["Date"] . "</td>" .
-                "<td>" . $row["AQI_Value"] . "</td>" .
-                "<td>" . $row["City_Key"] . "</td>";
+            echo "<td>" . $row["Description"] . "</td>" .
+                "<td>" . $row["cnt"] . "</td>";
             echo "</tr>";
         }
 

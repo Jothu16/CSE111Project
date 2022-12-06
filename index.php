@@ -214,8 +214,10 @@
 </form>
 
 <br>
-<br>
-<button onclick="myFunction()">Count the amount of entries for each status description</button>
+
+<form action="../buttons/EntriesForEachStatus.php" method="get">
+   <input type="submit" name="runQ" value="Get Amount of Entries for Each Status">
+</form>
 
 <br>
 <br>
