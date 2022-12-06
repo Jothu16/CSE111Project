@@ -37,3 +37,5 @@ SELECT DISTINCT Capital_City.Name FROM History, HistoryStatus, Status
                     WHERE History.History_Key = HistoryStatus.History_Key
                     AND HistoryStatus.Status_Key = Status.Status_Key
                     AND Description = 'Moderate';
+
+SELECT Status_Key FROM Status WHERE Description = 'Good';

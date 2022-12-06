@@ -264,8 +264,19 @@
 </form>
 
 <br>
-<br>
-<button onclick="myFunction()">find all cities except for unhealthy or worse cities</button>
+
+<form action="../buttons/ALLCitiesexceptunhealthy.php" method="get">
+    <label>Status:</label>
+    <select name="status" id="status">
+      <option value='Good'>Good</option>
+      <option value='Moderate'>Moderate</option>
+      <option value='Unhealthy for Sensitive Groups'>Unhealthy for Sensitive Groups</option>
+      <option value='Unhealthy'>Unhealthy</option>
+      <option value='Very Unhealthy'>Very Unhealthy</option>
+      <option value='Maroon'>Maroon</option>
+    </select>
+   <input type="submit" name="runQ" value="Find all Cities with Status Better than Selected">
+</form>
 
 <br>
 <br>
