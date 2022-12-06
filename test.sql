@@ -25,3 +25,15 @@ SELECT DISTINCT Capital_City.Name FROM Current_AQ_Info, Status
 
 
 SELECT User_Key FROM Users WHERE User_Key = 10;
+
+SELECT DISTINCT Capital_City.Name FROM History, HistoryStatus, Status
+                    INNER JOIN Capital_City ON History.City_Key = Capital_City.City_Key
+                    WHERE History.History_Key = HistoryStatus.History_Key
+                    AND HistoryStatus.Status_Key = Status.Status_Key
+                    AND Description = 'Good'
+                  INTERSECT
+                  SELECT DISTINCT Capital_City.Name FROM History, HistoryStatus, Status
+                    INNER JOIN Capital_City ON History.City_Key = Capital_City.City_Key
+                    WHERE History.History_Key = HistoryStatus.History_Key
+                    AND HistoryStatus.Status_Key = Status.Status_Key
+                    AND Description = 'Moderate';

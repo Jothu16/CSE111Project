@@ -232,13 +232,36 @@
    <input type="submit" name="runQ" value="Get Average">
 </form>
 
+<br>
+
 <form action="../buttons/CountCityCertainStatus.php" method="get">
    <input type="submit" name="runQ" value="Count Amount of Status Each City Had">
 </form>
 
 <br>
-<br>
-<button onclick="myFunction()">find cities that had both "Good" and "Moderate" Statuses in its history - change variables if needed</button>
+
+<form action="../buttons/CitiesGood&Moderate.php" method="get">
+    <label>Status 1:</label>
+    <select name="status1" id="status1">
+      <option value='Good'>Good</option>
+      <option value='Moderate'>Moderate</option>
+      <option value='Unhealthy for Sensitive Groups'>Unhealthy for Sensitive Groups</option>
+      <option value='Unhealthy'>Unhealthy</option>
+      <option value='Very Unhealthy'>Very Unhealthy</option>
+      <option value='Maroon'>Maroon</option>
+    </select>
+
+    <label>Status 2:</label>
+    <select name="status2" id="status2">
+      <option value='Good'>Good</option>
+      <option value='Moderate'>Moderate</option>
+      <option value='Unhealthy for Sensitive Groups'>Unhealthy for Sensitive Groups</option>
+      <option value='Unhealthy'>Unhealthy</option>
+      <option value='Very Unhealthy'>Very Unhealthy</option>
+      <option value='Maroon'>Maroon</option>
+    </select>
+   <input type="submit" name="runQ" value="Print Cities with Two Selected Statuses">
+</form>
 
 <br>
 <br>
